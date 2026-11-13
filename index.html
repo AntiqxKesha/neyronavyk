@@ -6,7 +6,7 @@
 <title>Нейронавык — специализация «ИИ в продажах»</title>
 <meta name="description" content="Нейронавык: бесплатный курс «ИИ в продажах». 5 видеоуроков по 20 минут: как работают нейросети, как писать запросы, ИИ в продажах, документы и безопасность данных, свой ИИ-ассистент. Входной тест, курсовая работа и проверка заданий в Telegram-боте.">
 <meta name="robots" content="index, follow">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self'; frame-src https://rutube.ru https://vk.com https://vkvideo.ru https://www.youtube.com; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https://mc.yandex.ru https://mc.yandex.com https://mc.yandex.md; media-src 'self'; frame-src https://rutube.ru https://vk.com https://vkvideo.ru https://www.youtube.com; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://mc.yandex.ru https://mc.yandex.com https://mc.yandex.md https://yastatic.net; connect-src 'self' https://mc.yandex.ru https://mc.yandex.com https://mc.yandex.md; base-uri 'self'; form-action 'none'; object-src 'none'">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F6BFF' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Ccircle cx='5' cy='5' r='1.5'/%3E%3Ccircle cx='19' cy='5' r='1.5'/%3E%3Ccircle cx='5' cy='19' r='1.5'/%3E%3Ccircle cx='19' cy='19' r='1.5'/%3E%3Cpath d='M12 12 5 5M12 12l7-7M12 12l-7 7M12 12l7 7'/%3E%3C/svg%3E">
 <style>
 /* ============================================================
@@ -459,6 +459,8 @@ a:hover{color:var(--accent-blue-light)}
 /* ---------- 1. Константы ---------- */
 var BOT_USERNAME = 'zero_domashka_bot';
 var SUPPORT_USERNAME = 'drivememe';
+/* Номер счётчика Яндекс Метрики (8 цифр). Пусто = счётчик не подключается. */
+var METRIKA_ID = '114239535';
 
 /* ---------- 2. Контент курса (сверено с видеоуроками) ---------- */
 var LECTURES = [
@@ -578,6 +580,7 @@ function deleteAllData(){
   [STORAGE_KEY, COOKIE_KEY, 'neuroskill_tests_v1', 'neuroskill_final_v1'].forEach(function(k){
     try { localStorage.removeItem(k); } catch(e){}
   });
+  clearMetrikaCookies();
   progress = {};
   hideCookieBanner();
 }
@@ -1418,7 +1421,7 @@ function copyText(text){
 
 /* ---------- 14. Правовая страница ---------- */
 function renderLegal(){
-  var date = '12 ноября 2026 года';
+  var date = '13 ноября 2026 года';
   var bot = '<a href="' + botLink('') + '" target="_blank" rel="noopener">@' + BOT_USERNAME + '</a>';
   var support = '<a href="https://t.me/' + SUPPORT_USERNAME + '" target="_blank" rel="noopener">@' + SUPPORT_USERNAME + '</a>';
   return '<section class="page-head reveal">' +
@@ -1472,8 +1475,9 @@ function renderLegal(){
         '<h3>1. Оператор</h3>' +
         '<p>Проектная команда «Зеро», учебный проект студентов РЭУ им. Г. В. Плеханова. Связь по вопросам данных: ' + support + ', сообщение с пометкой «Запрос по персональным данным».</p>' +
         '<h3>2. Что хранит сайт</h3>' +
-        '<p>Сайт не собирает персональные данные. Прогресс уроков, ответы на опросы, результаты тестов и цифры калькулятора курсовой хранятся только в вашем браузере (localStorage) и не передаются команде. Их можно удалить в разделе «Удаление данных».</p>' +
-        '<p>На сайте нет счётчиков, рекламы и сторонних шрифтов. Хостинг-провайдер может автоматически вести технические журналы (IP-адрес, время запроса, тип браузера) для работы и защиты сайта по своим правилам.</p>' +
+        '<p>Сайт не просит имя, почту или пароль и не требует регистрации. Прогресс уроков, ответы на опросы, результаты тестов и цифры калькулятора курсовой хранятся только в вашем браузере (localStorage) и не передаются команде. Их можно удалить в разделе «Удаление данных».</p>' +
+        '<p><strong>Статистика посещаемости.</strong> Если вы нажали «Принять» в уведомлении внизу страницы, сайт подключает счётчик Яндекс Метрики. Он сохраняет cookie с идентификатором браузера и получает ваш IP-адрес, тип устройства, браузер и операционную систему, примерный регион, адреса и названия просмотренных страниц сайта, время визита и источник перехода. Цель: узнать, сколько человек заходит на сайт и какие уроки смотрят. Мы видим сводные отчёты, не просим у вас имя и почту и не пытаемся определить, кто вы. Запись действий на экране (Вебвизор), карта кликов и отслеживание переходов по ссылкам отключены, введённые вами ответы Метрика не получает. Данные обрабатывает компания «Яндекс» на условиях <a href="https://yandex.ru/legal/metrica_termsofuse/" target="_blank" rel="noopener">Условий использования сервиса Яндекс Метрика</a>. Основание: ваше согласие. Если вы нажали «Отклонить» или не ответили, счётчик не загружается. Изменить выбор можно в разделе «Cookie и хранилище».</p>' +
+        '<p>Сайт размещён на GitHub Pages, на сайте нет рекламы и сторонних шрифтов. Хостинг-провайдер может автоматически вести технические журналы (IP-адрес, время запроса, тип браузера) для работы и защиты сайта по своим правилам, его серверы могут находиться за пределами России.</p>' +
         '<h3>3. Что обрабатывает Telegram-бот ' + bot + '</h3>' +
         '<ul>' +
           '<li><strong>Данные:</strong> идентификатор и имя пользователя в Telegram, имя из профиля, номер урока, тексты и файлы заданий, статусы и итоги проверки.</li>' +
@@ -1487,7 +1491,7 @@ function renderLegal(){
         '<ul>' +
           '<li>Узнать, какие ваши данные обрабатываются, и получить их копию.</li>' +
           '<li>Потребовать уточнения или удаления данных.</li>' +
-          '<li>Отозвать согласие в любой момент: напишите боту или в поддержку «Отзываю согласие». Мы прекратим обработку и удалим данные.</li>' +
+          '<li>Отозвать согласие в любой момент: для счётчика нажмите «Изменить выбор» в разделе «Cookie и хранилище», для бота напишите боту или в поддержку «Отзываю согласие». Мы прекратим обработку и удалим данные бота.</li>' +
           '<li>Мы отвечаем на запросы в течение 10 рабочих дней. Вы также можете обратиться в Роскомнадзор.</li>' +
         '</ul>' +
         '<h3>5. Изменения</h3>' +
@@ -1498,14 +1502,19 @@ function renderLegal(){
     '<section class="legal-section reveal" id="cookie">' +
       '<div class="legal-card">' +
         '<h2>Cookie и локальное хранилище</h2>' +
-        '<p>Сайт не использует cookie. Для работы курса применяется только локальное хранилище браузера (localStorage):</p>' +
+        '<p>Для работы курса сайт использует локальное хранилище браузера (localStorage):</p>' +
         '<ul>' +
           '<li>прогресс уроков и ответы на опросы;</li>' +
           '<li>результаты входного и итогового теста;</li>' +
           '<li>цифры, которые вы ввели в калькулятор курсовой работы;</li>' +
-          '<li>отметка о том, что вы прочитали уведомление о хранении данных.</li>' +
+          '<li>ваш ответ на уведомление («Принять» или «Отклонить»).</li>' +
         '</ul>' +
-        '<p>Эти данные нужны только для работы функций сайта, не используются для рекламы и аналитики и не покидают ваше устройство. Видеоуроки загружаются с этого же сайта. Если урок будет размещён на внешней видеоплатформе, её плеер загрузится только на странице этого урока, и платформа может обрабатывать данные по своим правилам.</p>' +
+        '<p>Эти данные нужны только для работы сайта и не покидают ваше устройство. Сам сайт cookie не создаёт.</p>' +
+        '<h3>Яндекс Метрика</h3>' +
+        '<p>Cookie создаёт только счётчик Яндекс Метрики (их названия начинаются с «_ym») и только после вашего согласия. Они нужны, чтобы отличать один браузер от другого и считать посещения. Реклама на сайте не показывается. Срок хранения и обработку данных определяют правила Яндекса.</p>' +
+        '<p>Чтобы изменить ответ, нажмите кнопку ниже: cookie Метрики будут удалены, а уведомление появится снова. Cookie можно также удалить в настройках браузера.</p>' +
+        '<p><button type="button" class="btn btn-ghost" data-action="cookie-reset">Изменить выбор</button></p>' +
+        '<p>Видеоуроки загружаются с этого же сайта. Если урок будет размещён на внешней видеоплатформе, её плеер загрузится только на странице этого урока, и платформа может обрабатывать данные по своим правилам.</p>' +
       '</div>' +
     '</section>' +
 
@@ -1564,6 +1573,7 @@ function renderLegal(){
         '<h2>Удаление данных</h2>' +
         '<p>Кнопка ниже удаляет всё, что сайт хранит в вашем браузере: прогресс уроков, ответы на опросы, результаты тестов и цифры курсовой. Действие необратимо, курс начнётся заново.</p>' +
         '<p class="small">Задания, отправленные боту, хранятся у бота. Чтобы удалить и их, напишите в поддержку ' + support + ': «Удалить мои данные».</p>' +
+        '<p class="small">Статистика посещаемости хранится в Яндекс Метрике в виде идентификатора браузера без имени и почты, эта кнопка её не стирает. Чтобы ваш браузер перестал учитываться, нажмите «Отклонить» в разделе «Cookie и хранилище».</p>' +
         '<div class="delete-aside">' +
           '<button type="button" class="btn btn-danger" data-action="delete-data" id="delete-data-btn">Удалить мои данные</button>' +
           '<span class="hint" id="delete-status" aria-live="polite"></span>' +
@@ -1790,7 +1800,7 @@ function moveGroupFocus(group, dir){
 function cookieConsent(){
   try {
     var v = localStorage.getItem(COOKIE_KEY);
-    return v === 'accepted' || v === 'declined' || v === 'seen';
+    return v === 'accepted' || v === 'declined';
   } catch(e){ return true; }
 }
 function hideCookieBanner(){
@@ -1805,16 +1815,47 @@ function showCookieBanner(){
   banner.id = 'cookie-banner';
   banner.setAttribute('role', 'region');
   banner.setAttribute('aria-label', 'Уведомление о хранении данных');
-  banner.innerHTML = '<p>Сайт не использует cookie, счётчики и рекламу. Прогресс курса и ответы хранятся только в вашем браузере. ' +
+  banner.innerHTML = '<p>Мы считаем посещаемость сайта с помощью Яндекс Метрики. Если вы согласны, Метрика сохранит cookie и получит ваш IP-адрес, ' +
+    'данные о браузере и просмотренные страницы. То, что вы вводите на сайте, она не получает. Пока вы не нажмёте «Принять», счётчик не загружается. ' +
     'Подробнее в разделе <a href="#/legal#cookie">«Cookie и хранилище»</a>.</p>' +
     '<div class="cookie-actions">' +
-      '<button type="button" class="btn btn-primary" data-cookie="accept">Понятно</button>' +
+      '<button type="button" class="btn btn-primary" data-cookie="accept">Принять</button>' +
+      '<button type="button" class="btn btn-ghost" data-cookie="decline">Отклонить</button>' +
     '</div>';
   document.body.appendChild(banner);
+}
+var METRIKA_LOADED = false;
+function loadMetrika(){
+  if(!METRIKA_ID || METRIKA_LOADED) return;
+  METRIKA_LOADED = true;
+  (function(m,e,t,r,i,k,a){ m[i] = m[i] || function(){ (m[i].a = m[i].a || []).push(arguments); }; m[i].l = 1 * new Date();
+    k = e.createElement(t); a = e.getElementsByTagName(t)[0]; k.async = 1; k.src = r; a.parentNode.insertBefore(k, a); })
+    (window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=' + METRIKA_ID, 'ym');
+  window.ym(Number(METRIKA_ID), 'init', { clickmap:false, trackLinks:false, accurateTrackBounce:false, webvisor:false, trackHash:true });
+}
+function clearMetrikaCookies(){
+  var host = location.hostname, parts = host.split('.'), domains = [host, '.' + host];
+  if(parts.length > 2) domains.push('.' + parts.slice(-2).join('.'));
+  document.cookie.split(';').forEach(function(c){
+    var name = c.split('=')[0].trim();
+    if(name.indexOf('_ym') !== 0 && name !== 'yabs-sid' && name !== 'ymex') return;
+    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+    domains.forEach(function(d){ document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=' + d; });
+  });
 }
 function setCookieConsent(value){
   try { localStorage.setItem(COOKIE_KEY, value); } catch(e){}
   hideCookieBanner();
+  if(value === 'accepted'){ loadMetrika(); }
+  else {
+    clearMetrikaCookies();
+    if(METRIKA_LOADED){ location.reload(); }
+  }
+}
+function resetCookieChoice(){
+  clearMetrikaCookies();
+  try { localStorage.removeItem(COOKIE_KEY); } catch(e){}
+  location.reload();
 }
 
 /* ---------- 22. Тост ---------- */
@@ -1845,6 +1886,12 @@ document.addEventListener('click', function(e){
     return;
   }
 
+  if(e.target.closest('[data-action="cookie-reset"]')){
+    e.preventDefault();
+    resetCookieChoice();
+    return;
+  }
+
   var copyBtn = e.target.closest('[data-action="copy-report"]');
   if(copyBtn){
     e.preventDefault();
@@ -1855,7 +1902,7 @@ document.addEventListener('click', function(e){
   var cookieBtn = e.target.closest('[data-cookie]');
   if(cookieBtn){
     e.preventDefault();
-    setCookieConsent('seen');
+    setCookieConsent(cookieBtn.dataset.cookie === 'accept' ? 'accepted' : 'declined');
     return;
   }
 
@@ -2000,6 +2047,7 @@ window.addEventListener('hashchange', router);
 /* ---------- 24. Запуск ---------- */
 router();
 showCookieBanner();
+try { if(localStorage.getItem(COOKIE_KEY) === 'accepted') loadMetrika(); } catch(e){}
 })();
 </script>
 </body>
