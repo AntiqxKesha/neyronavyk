@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Нейронавык — специализация «ИИ в продажах»</title>
+<meta name="description" content="Нейронавык: бесплатный курс «ИИ в продажах». 5 видеоуроков по 20 минут: как работают нейросети, как писать запросы, ИИ в продажах, документы и безопасность данных, свой ИИ-ассистент. Входной тест, курсовая работа и проверка заданий в Telegram-боте.">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self'; frame-src https://rutube.ru https://vk.com https://vkvideo.ru https://www.youtube.com; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F6BFF' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Ccircle cx='5' cy='5' r='1.5'/%3E%3Ccircle cx='19' cy='5' r='1.5'/%3E%3Ccircle cx='5' cy='19' r='1.5'/%3E%3Ccircle cx='19' cy='19' r='1.5'/%3E%3Cpath d='M12 12 5 5M12 12l7-7M12 12l-7 7M12 12l7 7'/%3E%3C/svg%3E">
+<style>
+/* ============================================================
+   Нейронавык — стили (v5 self-contained: доступность + правовое)
+   ============================================================ */
+:root{
+  --bg:#0D0F12; --surface-1:#161A1F; --surface-2:#1E232A;
+  --text-primary:#E6EAEF; --text-secondary:#9BA6B2; --text-muted:#77818C;
+  --border:#2A313A; --border-soft:#2E3740;
+  --accent-blue:#2F6BFF; --accent-blue-light:#5C8DFF;
+  --accent-violet:#8B5CF6; --accent-violet-light:#A78BFA;
+  --accent-cyan:#22D3EE; --accent-cyan-light:#67E8F9;
+  --accent-amber:#F59E0B; --accent-amber-light:#FBBF24;
+  --accent-magenta:#EC4899; --accent-magenta-light:#F472B6;
+  --accent-green:#34D399;
+  --grad-primary:linear-gradient(135deg,var(--accent-blue),var(--accent-violet));
+  --glow:0 0 0 1px rgba(47,107,255,.35),0 6px 28px rgba(47,107,255,.32);
+  --font-text:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  --font-display:system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;
+  --radius-lg:16px; --radius-md:12px; --radius-sm:8px;
+  --container:1080px; --shadow-card:0 12px 32px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-text);font-size:16px;line-height:1.6;color:var(--text-primary);background:var(--bg);display:flex;flex-direction:column;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img,svg,video,iframe{display:block;max-width:100%}
+a{color:var(--accent-blue);text-decoration:none}
+a:hover{color:var(--accent-blue-light)}
+::selection{background:rgba(139,92,246,.4)}
+:focus-visible{outline:3px solid var(--accent-cyan);outline-offset:3px;border-radius:4px}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1!important;transform:none!important}
+  .attention{animation:none!important}
+}
+.container{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:16px}
+.site-main{flex:1;padding-block:28px 64px}
+.skip-link{position:absolute;left:12px;top:-60px;z-index:200;padding:10px 16px;background:var(--grad-primary);color:#fff;border-radius:var(--radius-sm);font-weight:600;transition:top .18s ease}
+.skip-link:focus{top:12px;color:#fff}
+
+/* Шапка */
+.site-header{position:sticky;top:0;z-index:100;background:rgba(13,15,18,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:14px}
+.logo{display:inline-flex;align-items:center;gap:10px;color:var(--text-primary)}
+.logo:hover{color:var(--text-primary)}
+.logo-icon{width:28px;height:28px;color:var(--accent-blue);filter:drop-shadow(0 0 6px rgba(47,107,255,.55)) drop-shadow(0 0 14px rgba(139,92,246,.35))}
+.logo-text{font-family:var(--font-display);font-size:18px;font-weight:700;background:linear-gradient(90deg,#E6EAEF,#A78BFA);-webkit-background-clip:text;background-clip:text;color:transparent}
+.site-nav{display:flex;gap:6px}
+.nav-link{padding:8px 12px;border-radius:var(--radius-sm);color:var(--text-secondary);font-size:15px;font-weight:500}
+.nav-link:hover{color:var(--text-primary);background:var(--surface-1)}
+.nav-link.is-active{color:var(--accent-cyan-light)}
+
+/* Кнопки */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 18px;border:1px solid transparent;border-radius:var(--radius-md);font-family:var(--font-text);font-size:15px;font-weight:600;line-height:1.2;cursor:pointer;transition:filter .18s ease,border-color .18s ease,color .18s ease,transform .18s ease,box-shadow .18s ease;text-align:center;color:var(--text-primary)}
+.btn:hover{color:var(--text-primary)}
+.btn-lg{padding:14px 24px;font-size:16px}
+.btn-primary{background:var(--grad-primary);color:#fff;box-shadow:var(--glow)}
+.btn-primary:hover{filter:brightness(1.12);color:#fff;transform:translateY(-2px);box-shadow:0 0 0 1px rgba(92,141,255,.5),0 8px 34px rgba(92,141,255,.4)}
+.btn-ghost{background:transparent;border-color:var(--border)}
+.btn-ghost:hover{border-color:var(--accent-violet);color:var(--accent-violet-light);background:var(--surface-1);transform:translateY(-2px)}
+.btn-danger{background:transparent;border-color:rgba(236,72,153,.55);color:var(--accent-magenta-light)}
+.btn-danger:hover{border-color:var(--accent-magenta);background:rgba(236,72,153,.08);color:var(--accent-magenta-light)}
+.btn.is-disabled{opacity:.45;pointer-events:none}
+
+/* Hero */
+.hero{position:relative;padding-block:40px 8px;max-width:760px;overflow:hidden}
+.hero::before,.hero::after{content:'';position:absolute;border-radius:50%;filter:blur(46px);pointer-events:none;z-index:-1}
+.hero::before{width:320px;height:320px;top:-80px;right:-60px;background:rgba(139,92,246,.22)}
+.hero::after{width:260px;height:260px;top:60px;left:-90px;background:rgba(47,107,255,.16)}
+.hero-kicker{display:inline-block;margin-bottom:16px;padding:6px 12px;border:1px solid rgba(139,92,246,.5);border-radius:999px;color:var(--accent-violet-light);background:rgba(139,92,246,.1);font-size:13px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.hero-title{font-family:var(--font-display);font-size:clamp(30px,6vw,48px);line-height:1.15;letter-spacing:-.01em;margin-bottom:14px;color:var(--text-primary);background:linear-gradient(90deg,#E6EAEF 0%,#5C8DFF 45%,#A78BFA 75%,#F472B6 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-subtitle{color:var(--text-secondary);font-size:17px;margin-bottom:28px;max-width:580px}
+
+/* Заголовки */
+.section-title{font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:-.01em}
+.section-head{display:flex;flex-direction:column;gap:16px;margin-bottom:24px}
+
+/* Прогресс */
+.progress-block{max-width:340px}
+.progress-label{font-size:14px;color:var(--text-secondary);margin-bottom:8px}
+.progress-track{height:10px;background:var(--surface-2);border:1px solid var(--border);border-radius:999px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent-blue),var(--accent-violet),var(--accent-magenta));border-radius:999px;box-shadow:0 0 14px rgba(139,92,246,.6);transition:width .5s cubic-bezier(.22,.8,.36,1)}
+
+/* Шаги */
+.steps-section,.lectures-section{margin-top:56px}
+.steps-list{list-style:none;display:grid;gap:14px;margin-top:20px}
+.step{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;transition:transform .18s ease,border-color .18s ease}
+.step:hover{transform:translateY(-3px);border-color:rgba(139,92,246,.5)}
+.step-num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--grad-primary);color:#fff;font-family:var(--font-display);font-weight:700;font-size:15px;margin-bottom:12px;box-shadow:0 0 12px rgba(139,92,246,.45)}
+.step h3{font-family:var(--font-display);font-size:17px;margin-bottom:6px}
+.step p{color:var(--text-secondary);font-size:15px}
+
+/* Карточки */
+.lecture-grid{list-style:none;display:grid;grid-template-columns:1fr;gap:14px}
+.lecture-card{--acc:var(--accent-blue);--acc-light:var(--accent-blue-light);--acc-border:rgba(47,107,255,.45);position:relative;background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;height:100%;display:flex;flex-direction:column;gap:12px;overflow:hidden;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.card-strip{position:absolute;inset:0 0 auto 0;height:3px;background:linear-gradient(90deg,var(--acc),var(--acc-light));opacity:.85}
+.lecture-card.accent-cyan{--acc:var(--accent-cyan);--acc-light:var(--accent-cyan-light);--acc-border:rgba(34,211,238,.45)}
+.lecture-card.accent-amber{--acc:var(--accent-amber);--acc-light:var(--accent-amber-light);--acc-border:rgba(245,158,11,.45)}
+.lecture-card.accent-violet{--acc:var(--accent-violet);--acc-light:var(--accent-violet-light);--acc-border:rgba(139,92,246,.5)}
+.lecture-card.accent-magenta{--acc:var(--accent-magenta);--acc-light:var(--accent-magenta-light);--acc-border:rgba(236,72,153,.45)}
+.lecture-card:hover{transform:translateY(-3px);border-color:var(--acc-border);box-shadow:0 12px 36px rgba(0,0,0,.45),0 0 24px rgba(0,0,0,.25),0 0 0 1px var(--acc-border)}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.card-num{font-family:var(--font-display);font-size:14px;font-weight:700;color:var(--acc-light)}
+.card-title{font-size:17px;line-height:1.35}
+.card-link{color:var(--text-primary)}
+.card-link:hover{color:var(--acc-light)}
+.card-duration{display:inline-flex;align-items:center;gap:6px;color:var(--text-secondary);font-size:14px;margin-top:auto}
+.card-duration svg{color:var(--acc-light)}
+.lecture-card.is-done{opacity:.7}
+.lecture-card.is-done .card-strip{background:linear-gradient(90deg,var(--accent-green),#6EE7B7)}
+.lecture-card.is-watched{opacity:.88}
+.lecture-card.is-locked{opacity:.58;filter:grayscale(.45)}
+.lecture-card.is-locked:hover{transform:none;border-color:var(--border);box-shadow:none}
+.lecture-card.is-locked .card-strip{opacity:.3}
+.lecture-card.is-locked .card-title{color:var(--text-secondary)}
+.lock-hint{color:var(--text-secondary);font-size:13px;margin-top:auto}
+.badge svg{flex-shrink:0}
+
+/* Чипы */
+.tool-chips{display:flex;flex-wrap:wrap;gap:6px}
+.tool-chip{--chip-bg:rgba(47,107,255,.12);--chip-border:rgba(47,107,255,.45);--chip-fg:var(--accent-blue-light);display:inline-flex;align-items:center;padding:3px 10px;border:1px solid var(--chip-border);border-radius:999px;background:var(--chip-bg);color:var(--chip-fg);font-size:12px;font-weight:600;white-space:nowrap}
+.tool-chip.chip-chatgpt{--chip-bg:rgba(34,211,238,.1);--chip-border:rgba(34,211,238,.4);--chip-fg:var(--accent-cyan-light)}
+.tool-chip.chip-claude{--chip-bg:rgba(245,158,11,.1);--chip-border:rgba(245,158,11,.4);--chip-fg:var(--accent-amber-light)}
+.tool-chip.chip-leonardo{--chip-bg:rgba(139,92,246,.14);--chip-border:rgba(139,92,246,.5);--chip-fg:var(--accent-violet-light)}
+.tool-chip.chip-all{--chip-bg:rgba(47,107,255,.12);--chip-border:rgba(47,107,255,.45);--chip-fg:var(--accent-blue-light)}
+
+/* Бейджи */
+.badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border:1px solid var(--border);border-radius:999px;font-size:12.5px;font-weight:600;color:var(--text-secondary);white-space:nowrap}
+.badge-accent{color:var(--accent-cyan-light);border-color:rgba(34,211,238,.4);background:rgba(34,211,238,.08)}
+.badge-warn{color:var(--accent-amber-light);border-color:rgba(245,158,11,.45);background:rgba(245,158,11,.08)}
+.badge-solid{color:#fff;background:var(--grad-primary);border-color:transparent;box-shadow:0 0 10px rgba(139,92,246,.4)}
+
+/* Страница лекции */
+.back-link{display:inline-flex;align-items:center;gap:6px;margin-bottom:20px;color:var(--text-secondary);font-size:15px;font-weight:500}
+.back-link:hover{color:var(--accent-blue-light)}
+.lecture-meta{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:12px}
+.lecture-title{font-family:var(--font-display);font-size:clamp(24px,4.5vw,36px);line-height:1.2;letter-spacing:-.01em;margin-bottom:10px}
+.lecture-desc{color:var(--text-secondary);max-width:720px}
+.lecture-duration{color:var(--text-secondary);font-size:14px}
+.lecture-duration svg{color:var(--accent-violet-light)}
+.video-frame{position:relative;aspect-ratio:16/9;background:#000;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;margin-top:28px;box-shadow:0 0 0 1px rgba(34,211,238,.12),0 14px 40px rgba(0,0,0,.45)}
+.video-frame iframe,.video-frame video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.player-placeholder{margin-top:28px;background:linear-gradient(180deg,var(--surface-1),var(--surface-2));border:1px dashed rgba(139,92,246,.45);border-radius:var(--radius-lg);padding:48px 24px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}
+.ph-icon{color:var(--accent-violet-light);opacity:.9;filter:drop-shadow(0 0 10px rgba(139,92,246,.5))}
+.ph-text{font-family:var(--font-display);font-size:18px;font-weight:600;margin-top:8px}
+.ph-note{color:var(--text-secondary);font-size:14px}
+
+/* Вкладки */
+.lecture-body{margin-top:36px}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--border);margin-bottom:24px;overflow-x:auto}
+.tab{appearance:none;background:transparent;border:none;border-bottom:2px solid transparent;padding:10px 14px;font-family:var(--font-text);font-size:15px;font-weight:600;color:var(--text-secondary);cursor:pointer;white-space:nowrap;transition:color .18s ease,border-color .18s ease}
+.tab:hover{color:var(--text-primary)}
+.tab.is-active{color:var(--accent-cyan-light);border-bottom-color:var(--accent-cyan)}
+.tab-panel{padding-bottom:8px}
+.materials-list{list-style:none;display:grid;gap:10px}
+.material-link{display:flex;align-items:center;gap:10px;padding:14px 16px;background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md);color:var(--text-primary);font-weight:500;transition:border-color .18s ease,transform .18s ease}
+.material-link:hover{border-color:var(--accent-violet);color:var(--accent-violet-light);transform:translateY(-2px)}
+.material-link svg{color:var(--accent-violet-light);flex-shrink:0}
+.empty-note{color:var(--text-secondary);padding:16px 0}
+.homework-text{margin-bottom:20px}
+.homework-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:14px}
+.hint{color:var(--text-secondary);font-size:14px}
+.lecture-actions{margin-top:32px}
+.lecture-nav{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;margin-top:28px;padding-top:24px;border-top:1px solid var(--border)}
+
+/* Опрос */
+.survey-section{margin-top:40px;background:linear-gradient(180deg,var(--surface-1),var(--surface-2));border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px}
+.survey-section h2{font-family:var(--font-display);font-size:20px;margin-bottom:4px}
+.survey-intro{color:var(--text-secondary);font-size:14px;margin-bottom:20px}
+.survey-field{margin-bottom:18px}
+.survey-field>label,.survey-label{display:block;font-size:14px;font-weight:600;color:var(--text-primary);margin-bottom:8px}
+.survey-label .req{color:var(--accent-magenta-light)}
+.stars{display:inline-flex;gap:6px}
+.star{appearance:none;background:transparent;border:1px solid var(--border);border-radius:10px;padding:8px;cursor:pointer;color:var(--text-secondary);line-height:0;transition:border-color .18s ease,color .18s ease,transform .18s ease,box-shadow .18s ease}
+.star:hover{transform:translateY(-2px);color:var(--accent-amber-light);border-color:var(--accent-amber)}
+.star.is-active{color:var(--accent-amber);border-color:var(--accent-amber);box-shadow:0 0 10px rgba(245,158,11,.35)}
+.seg-group{display:flex;flex-wrap:wrap;gap:8px}
+.seg{appearance:none;background:transparent;border:1px solid var(--border);border-radius:999px;padding:8px 16px;font-family:var(--font-text);font-size:14px;font-weight:600;color:var(--text-secondary);cursor:pointer;transition:border-color .18s ease,color .18s ease,background .18s ease}
+.seg:hover{border-color:var(--accent-violet);color:var(--accent-violet-light)}
+.seg.is-active{background:rgba(139,92,246,.16);border-color:var(--accent-violet);color:var(--accent-violet-light)}
+.chip-group{display:flex;flex-wrap:wrap;gap:8px}
+.chip{appearance:none;background:transparent;border:1px solid var(--border);border-radius:999px;padding:7px 14px;font-family:var(--font-text);font-size:13.5px;font-weight:500;color:var(--text-secondary);cursor:pointer;transition:border-color .18s ease,color .18s ease,background .18s ease}
+.chip:hover{border-color:var(--accent-cyan);color:var(--accent-cyan-light)}
+.chip.is-selected{background:rgba(34,211,238,.12);border-color:var(--accent-cyan);color:var(--accent-cyan-light)}
+.input-text{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-md);padding:12px 14px;font-family:var(--font-text);font-size:15px;color:var(--text-primary);resize:vertical;min-height:80px;transition:border-color .18s ease,box-shadow .18s ease}
+.input-text::placeholder{color:var(--text-muted)}
+.input-text:focus{outline:none;border-color:var(--accent-violet);box-shadow:0 0 0 3px rgba(139,92,246,.18)}
+.survey-submit{margin-top:8px}
+.field-error{display:block;color:var(--accent-magenta-light);font-size:13px;margin-top:6px;min-height:0}
+.consent-line{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--text-secondary);margin:14px 0 4px}
+.consent-line input{width:18px;height:18px;margin-top:2px;flex-shrink:0;accent-color:var(--accent-violet)}
+.consent-line a{color:var(--accent-blue-light)}
+.survey-success{text-align:center;padding:12px 0 4px}
+.survey-success .check-circle{width:52px;height:52px;margin:0 auto 14px;border-radius:50%;background:rgba(52,211,153,.12);border:1px solid rgba(52,211,153,.45);color:var(--accent-green);display:flex;align-items:center;justify-content:center;box-shadow:0 0 16px rgba(52,211,153,.25)}
+.survey-success h3{font-family:var(--font-display);font-size:18px;margin-bottom:6px}
+.survey-success p{color:var(--text-secondary);font-size:14px}
+.attention{animation:attentionPulse 1.6s ease 2}
+@keyframes attentionPulse{0%,100%{box-shadow:0 0 0 0 rgba(47,107,255,0)}50%{box-shadow:0 0 0 4px rgba(47,107,255,.55)}}
+
+/* Страница «О курсе» */
+.page-title{font-family:var(--font-display);font-size:clamp(28px,5vw,40px);margin-bottom:12px;background:linear-gradient(90deg,#E6EAEF,#5C8DFF 55%,#A78BFA);-webkit-background-clip:text;background-clip:text;color:transparent}
+.page-lead{color:var(--text-secondary);max-width:660px}
+.about-section{margin-top:44px}
+.format-list{list-style:none;display:grid;gap:10px;margin-top:16px}
+.format-list li{display:flex;gap:12px;align-items:flex-start;padding:16px;background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md);color:var(--text-secondary)}
+.format-list li::before{content:'';flex-shrink:0;width:8px;height:8px;border-radius:50%;background:var(--grad-primary);margin-top:8px;box-shadow:0 0 8px rgba(139,92,246,.6)}
+.program-list{list-style:none;display:grid;gap:10px;margin-top:16px}
+.program-link{display:flex;align-items:center;gap:14px;padding:16px;background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md);color:var(--text-primary);transition:border-color .18s ease,transform .18s ease}
+.program-link:hover{border-color:var(--accent-violet);transform:translateY(-2px);color:var(--text-primary)}
+.program-num{font-family:var(--font-display);font-weight:700;color:var(--accent-violet-light);font-size:14px;flex-shrink:0}
+.program-title{font-weight:500;flex:1}
+.program-duration{color:var(--text-secondary);font-size:14px;flex-shrink:0;display:inline-flex;align-items:center;gap:6px}
+.program-duration svg{color:var(--accent-amber-light)}
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:16px}
+.stat-card{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md);padding:14px 16px}
+.stat-value{font-family:var(--font-display);font-size:26px;font-weight:700;letter-spacing:-.01em;background:linear-gradient(90deg,var(--accent-blue-light),var(--accent-violet-light));-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat-label{color:var(--text-secondary);font-size:13.5px;line-height:1.45;margin-top:4px}
+.survey-note{color:var(--text-secondary);font-size:13px;margin-top:10px}
+.usp-card{margin-top:16px;padding:22px;border-radius:var(--radius-lg);background:linear-gradient(135deg,rgba(47,107,255,.14),rgba(139,92,246,.16));border:1px solid rgba(139,92,246,.45)}
+.usp-card p{font-size:17px;font-weight:600;line-height:1.5}
+.check-list{list-style:none;display:grid;gap:10px;margin-top:16px}
+.check-list li{display:flex;gap:10px;align-items:flex-start;padding:14px 16px;background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md);color:var(--text-secondary);font-size:15px}
+.check-list svg{color:var(--accent-green);flex-shrink:0;margin-top:2px}
+.check-list strong{color:var(--text-primary);display:block;margin-bottom:2px}
+.team-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
+.team-card{display:flex;align-items:center;gap:12px;padding:14px;background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md)}
+.team-avatar{width:42px;height:42px;border-radius:50%;background:var(--grad-primary);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:700;font-size:15px;box-shadow:0 0 12px rgba(139,92,246,.4);flex-shrink:0}
+.team-name{font-weight:600;font-size:15px}
+.cmp-table{margin-top:16px;border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden}
+.cmp-row{display:grid;grid-template-columns:1fr}
+.cmp-head .cmp-cell{background:var(--surface-2);font-weight:600;color:var(--text-primary);font-size:13.5px;text-transform:uppercase;letter-spacing:.04em}
+.cmp-cell{padding:12px 14px;font-size:14px;color:var(--text-secondary);border-top:1px solid var(--border)}
+.cmp-head .cmp-cell{border-top:none}
+.cmp-cell strong{color:var(--text-primary)}
+.cmp-cell.diff{color:var(--accent-cyan-light)}
+.risk-list .risk-arrow{color:var(--accent-violet-light);flex-shrink:0}
+.meta-note{color:var(--text-secondary);font-size:14px;margin-top:10px}
+
+/* Правовая страница */
+.legal-section{margin-top:36px;max-width:820px}
+.legal-card{background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;margin-top:16px}
+.legal-card h2{font-family:var(--font-display);font-size:20px;margin-bottom:10px}
+.legal-card h3{font-family:var(--font-display);font-size:16px;margin:16px 0 8px}
+.legal-card p,.legal-card li{color:var(--text-secondary);font-size:15px}
+.legal-card ul{padding-left:20px;margin:8px 0;display:grid;gap:6px}
+.legal-card a{color:var(--accent-blue-light)}
+.legal-card .small{font-size:13px;color:var(--text-muted)}
+.delete-zone{border-color:rgba(236,72,153,.4);background:rgba(236,72,153,.05)}
+.delete-zone h2{color:var(--accent-magenta-light)}
+.delete-aside{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:14px}
+
+/* Заблокированный урок */
+.locked-page{max-width:640px;padding:40px 0 20px;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.locked-icon{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.5);color:var(--accent-amber-light);box-shadow:0 0 18px rgba(245,158,11,.25)}
+.locked-icon svg{width:30px;height:30px}
+.locked-title{font-family:var(--font-display);font-size:clamp(22px,4vw,30px);line-height:1.2;letter-spacing:-.01em}
+.locked-text{color:var(--text-secondary);font-size:15px}
+.locked-prev{margin-top:8px;padding:18px;background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md);display:flex;flex-direction:column;gap:10px}
+.locked-prev p{color:var(--text-secondary);font-size:14px}
+
+/* Cookie-баннер */
+.cookie-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:300;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px 20px;box-shadow:0 16px 48px rgba(0,0,0,.55);max-width:520px;margin-left:auto;margin-right:auto;display:flex;flex-direction:column;gap:14px}
+.cookie-banner p{font-size:14px;color:var(--text-secondary)}
+.cookie-banner .cookie-actions{display:flex;flex-wrap:wrap;gap:10px}
+
+/* Футер */
+.site-footer{border-top:1px solid var(--border);padding-block:24px}
+.footer-inner{display:flex;flex-direction:column;gap:12px}
+.footer-copy{color:var(--text-secondary);font-size:14px}
+.footer-contacts{font-style:normal;color:var(--text-secondary);font-size:14px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.footer-contacts a{color:var(--accent-blue-light)}
+.footer-contacts a:hover{color:var(--accent-cyan-light)}
+.footer-links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px}
+.footer-links a{color:var(--text-secondary)}
+.footer-links a:hover{color:var(--accent-cyan-light)}
+
+/* Анимация появления */
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .5s ease,transform .5s ease}
+.reveal.in-view{opacity:1;transform:none}
+
+/* Тост */
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);z-index:400;background:var(--surface-2);border:1px solid var(--accent-green);border-radius:var(--radius-md);padding:12px 20px;font-size:14px;font-weight:600;color:var(--text-primary);box-shadow:0 14px 40px rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;max-width:calc(100vw - 32px);text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media (min-width:640px){
+  .container{padding-inline:24px}
+  .lecture-grid{grid-template-columns:repeat(2,1fr)}
+  .steps-list{grid-template-columns:repeat(3,1fr)}
+  .section-head{flex-direction:row;align-items:center;justify-content:space-between}
+  .footer-inner{flex-direction:row;justify-content:space-between;align-items:center;flex-wrap:wrap}
+  .survey-section{padding:28px}
+  .stat-grid{grid-template-columns:repeat(4,1fr)}
+  .team-grid{grid-template-columns:repeat(3,1fr)}
+  .cookie-banner{bottom:24px;left:auto;right:24px;margin:0}
+}
+@media (min-width:720px){
+  .cmp-row{grid-template-columns:1.2fr 1.4fr 1.6fr}
+  .cmp-cell{border-top:none;border-left:1px solid var(--border)}
+  .cmp-cell:first-child{border-left:none}
+}
+@media (min-width:920px){
+  .lecture-grid{grid-template-columns:repeat(3,1fr)}
+  .hero{padding-block:64px 8px}
+  .site-main{padding-block:40px 80px}
+}
+
+/* v6: тест, курсовая, мобильная навигация, правовые разделы */
+.hero{overflow:visible}
+.site-main{overflow-x:clip}
+[tabindex="-1"]:focus{outline:none}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px}
+.age-mark{display:inline-block;margin-right:6px;padding:1px 6px;border:1px solid var(--border);border-radius:6px;font-size:12px;font-weight:700;color:var(--text-primary)}
+.extra-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:20px}
+.extra-card{display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:20px;background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-lg);color:var(--text-primary);transition:transform .18s ease,border-color .18s ease}
+.extra-card:hover{transform:translateY(-3px);border-color:rgba(139,92,246,.5);color:var(--text-primary)}
+.extra-card h3{font-family:var(--font-display);font-size:18px}
+.extra-card p{color:var(--text-secondary);font-size:15px}
+.note-card{margin:20px 0;padding:16px 18px;background:var(--surface-1);border:1px solid var(--border);border-left:3px solid var(--accent-cyan);border-radius:var(--radius-md);color:var(--text-secondary);font-size:15px}
+.note-card a{color:var(--accent-blue-light)}
+.test-form{display:grid;gap:14px;margin-top:8px}
+.q-card{border:1px solid var(--border);border-radius:var(--radius-lg);padding:18px;background:var(--surface-1);display:grid;gap:8px;min-width:0}
+.q-card.is-missing{border-color:var(--accent-magenta)}
+.q-card legend{font-weight:600;font-size:16px;line-height:1.45;padding:0 4px;color:var(--text-primary)}
+.q-num{display:block;font-size:12.5px;font-weight:600;color:var(--accent-violet-light);margin-bottom:4px}
+.q-opt{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--border);border-radius:var(--radius-md);cursor:pointer;color:var(--text-secondary);font-size:15px;transition:border-color .18s ease,background .18s ease}
+.q-opt:hover{border-color:var(--accent-violet)}
+.q-opt input{width:18px;height:18px;margin-top:3px;flex-shrink:0;accent-color:var(--accent-violet)}
+.q-opt:has(input:checked){border-color:var(--accent-violet);background:rgba(139,92,246,.12);color:var(--text-primary)}
+.result-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:8px}
+.result-card{padding:20px;background:linear-gradient(135deg,rgba(47,107,255,.14),rgba(139,92,246,.16));border:1px solid rgba(139,92,246,.45);border-radius:var(--radius-lg)}
+.result-title{font-weight:600;color:var(--text-secondary);font-size:14px;text-transform:uppercase;letter-spacing:.04em}
+.result-score{font-family:var(--font-display);font-size:40px;font-weight:700;line-height:1.1;margin-top:6px}
+.result-score span{font-size:18px;color:var(--text-secondary);font-weight:600}
+.result-level{color:var(--accent-cyan-light);font-weight:600;margin-bottom:10px}
+.result-by{list-style:none;display:grid;gap:4px;font-size:14px;color:var(--text-secondary)}
+.result-by li{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--border);padding-top:4px}
+.key-title{margin-top:32px}
+.key-list{display:grid;gap:12px;margin-top:16px;padding-left:22px}
+.key-list li{padding:14px 16px;background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md);color:var(--text-secondary);font-size:14.5px}
+.key-list li.is-ok{border-left:3px solid var(--accent-green)}
+.key-list li.is-bad{border-left:3px solid var(--accent-magenta)}
+.key-q{color:var(--text-primary);font-weight:600;margin-bottom:6px}
+.key-e{margin-top:6px;font-size:13.5px}
+.final-steps{display:grid;gap:10px;margin-top:16px;padding-left:22px;color:var(--text-secondary)}
+.final-steps li{padding-left:4px}
+.final-steps strong{color:var(--text-primary)}
+.final-steps a{color:var(--accent-blue-light)}
+.metric-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:16px}
+.metric{padding:14px 16px;background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md)}
+.metric-name{font-weight:600;font-size:14.5px}
+.metric-formula{color:var(--text-secondary);font-size:14px;margin-top:4px}
+.metric-value{font-family:var(--font-display);font-size:22px;font-weight:700;margin-top:4px;color:var(--accent-cyan-light)}
+.calc{display:grid;gap:12px;margin-top:16px}
+.calc-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:14px;background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md)}
+.calc-row label{display:flex;flex-direction:column;gap:6px;font-size:13.5px;color:var(--text-secondary);min-width:0}
+.calc-row label:first-child{grid-column:1 / -1}
+.calc-row-short label:first-child{grid-column:auto}
+.input-line{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;font-family:var(--font-text);font-size:15px;color:var(--text-primary)}
+.input-line:focus{outline:none;border-color:var(--accent-violet);box-shadow:0 0 0 3px rgba(139,92,246,.18)}
+.calc-out{margin-bottom:16px}
+.rubric{width:100%;border-collapse:collapse;margin-top:16px;font-size:14.5px}
+.rubric th,.rubric td{padding:10px 12px;border:1px solid var(--border);text-align:left;vertical-align:top;color:var(--text-secondary)}
+.rubric th{background:var(--surface-2);color:var(--text-primary)}
+.rubric .num{text-align:right;white-space:nowrap;width:70px}
+.rubric .total td{color:var(--text-primary);font-weight:700}
+.legal-section{scroll-margin-top:84px}
+.legal-toc{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:16px;font-size:14px}
+.legal-toc a{color:var(--accent-blue-light)}
+.survey-bot{margin-top:14px}
+@media (max-width:719px){
+  .header-inner{flex-direction:column;align-items:flex-start;gap:6px;padding-block:10px}
+  .site-nav{width:100%;flex-wrap:wrap;gap:2px 4px;margin-left:-8px}
+  .nav-link{white-space:nowrap;padding:5px 8px;font-size:14px}
+}
+@media (min-width:640px){
+  .extra-grid{grid-template-columns:repeat(2,1fr)}
+  .result-grid{grid-template-columns:repeat(2,1fr)}
+  .metric-grid{grid-template-columns:repeat(2,1fr)}
+  .calc-row{grid-template-columns:2fr 1fr 1fr 1fr}
+  .calc-row label:first-child{grid-column:auto}
+}
+@media (min-width:920px){
+  .metric-grid{grid-template-columns:repeat(3,1fr)}
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main" data-action="skip">Перейти к содержимому</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#/" class="logo" aria-label="Нейронавык — на главную">
+      <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="2.6"></circle>
+        <circle cx="4.5" cy="5.5" r="1.6"></circle>
+        <circle cx="19.5" cy="5.5" r="1.6"></circle>
+        <circle cx="4.5" cy="18.5" r="1.6"></circle>
+        <circle cx="19.5" cy="18.5" r="1.6"></circle>
+        <path d="M12 12 4.5 5.5M12 12l7.5-6.5M12 12l-7.5 6.5M12 12l7.5 6.5"></path>
+      </svg>
+      <span class="logo-text">Нейронавык</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Основная навигация">
+      <a href="#/" class="nav-link" data-nav="home">Лекции</a>
+      <a href="#/about" class="nav-link" data-nav="about">О курсе</a>
+      <a href="#/test" class="nav-link" data-nav="test">Тест</a>
+      <a href="#/final" class="nav-link" data-nav="final">Курсовая</a>
+      <a href="#/legal" class="nav-link" data-nav="legal">Документы</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="site-main" tabindex="-1">
+  <div id="app" class="container"></div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="footer-copy"><span class="age-mark" aria-label="Возрастное ограничение 16 плюс">16+</span> © 2026 Нейронавык · Команда «Зеро», учебный проект студентов РЭУ им. Г. В. Плеханова</p>
+    <nav class="footer-links" aria-label="Правовая информация">
+      <a href="#/legal#offer">Условия участия</a>
+      <a href="#/legal#privacy">Персональные данные</a>
+      <a href="#/legal#cookie">Cookie и хранилище</a>
+      <a href="#/legal#delete">Удаление данных</a>
+    </nav>
+    <address class="footer-contacts">
+      <span>Поддержка:</span>
+      <a href="https://t.me/drivememe" target="_blank" rel="noopener">@drivememe</a>
+      <span>Сдача заданий:</span>
+      <a href="https://t.me/zero_domashka_bot" target="_blank" rel="noopener">@zero_domashka_bot</a>
+    </address>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   Нейронавык — логика (v5, self-contained)
+   • Роутинг по hash: #/, #/lecture/N, #/about, #/legal
+   • Поэтапное прохождение: урок N+1 открывается после прохождения N
+   • Прогресс/опросы — localStorage (с безопасным фолбэком)
+   • Правовой блок: privacy, оферта, cookie, возврат, реквизиты,
+     согласие детей, отписка, лицензии, удаление данных
+   ============================================================ */
+(function(){
+'use strict';
+
+/* ---------- 1. Константы ---------- */
+var BOT_USERNAME = 'zero_domashka_bot';
+var SUPPORT_USERNAME = 'drivememe';
+
+/* ---------- 2. Контент курса (сверено с видеоуроками) ---------- */
+var LECTURES = [
+  { id:1, title:'Нейросеть не думает: как работает ИИ', duration:'≈ 21 мин', tag:'Основы',
+    description:'Как языковая модель предсказывает текст, что такое токены и температура, почему ИИ уверенно ошибается (галлюцинации), что умеют современные ассистенты: голос, фото, документы, поиск, агенты. И короткая формула запроса: кто, что, зачем, как, чего нельзя.',
+    videoType:'mp4', videoUrl:'videos/lesson1.mp4', materials:[],
+    homework:'Включите голосовой режим в любом ИИ-ассистенте и попросите его отрепетировать с вами один разговор, который ждёт вас на этой неделе. В бот отправьте: какой разговор репетировали, какую роль вы задали ИИ и что изменили в своих ответах после репетиции.' },
+  { id:2, title:'Как писать запросы: формула из пяти частей', duration:'≈ 20 мин', tag:'Запросы',
+    description:'Формула запроса: роль, задача, контекст, формат, ограничения. Контекст и образцы, диалог вместо одной попытки, проверка ответа, приёмы для сложных задач (рассуждение по шагам, запрос на запрос, пример входа и выхода, таблица критериев) и частые ошибки.',
+    videoType:'mp4', videoUrl:'videos/lesson2.mp4', materials:[],
+    homework:'Выберите рабочую задачу, напишите запрос по формуле из пяти частей, сделайте две итерации и отправьте в бот курса первый и последний ответы.' },
+  { id:3, title:'ИИ в продажах: от первого контакта до сделки', duration:'≈ 18 мин', tag:'Продажи',
+    description:'Подготовка к встрече, первый контакт, выявление потребностей, тренажёр возражений, коммерческое предложение по схеме «свойство, выгода, доказательство», работа после встречи, клиентская база и трудные ситуации. Два запрета: не выдумывать и не отправлять вслепую.',
+    videoType:'mp4', videoUrl:'videos/lesson3.mp4', materials:[],
+    homework:'Запустите тренажёр на три возражения по вашему продукту или личной ситуации и отправьте в бот курса запрос и лучший ответ с разбором.' },
+  { id:4, title:'Документы, таблицы и безопасность данных', duration:'≈ 20 мин', tag:'Документы',
+    description:'Резюме и вопросы к документам с цитатами и страницами, договоры, таблицы и формулы с проверкой на трёх строках, презентации и отчёты, регламенты, письма и чек-листы. Какие данные нельзя вставлять в чат и как их обезличить.',
+    videoType:'mp4', videoUrl:'videos/lesson4.mp4', materials:[],
+    homework:'Возьмите один документ или таблицу, обезличьте, получите резюме и три вывода. Отправьте в бот курса запрос, результат и список того, что вы заменили.' },
+  { id:5, title:'Свой ИИ-ассистент и план на 30 дней', duration:'≈ 20 мин', tag:'Ассистент',
+    description:'Постоянные инструкции, проекты и база знаний, ассистент из пяти частей (роль, знания, правила, формат, границы), библиотека запросов, автоматизация, замер пользы по времени, правкам и результату, план на 30 дней и финальное задание.',
+    videoType:'mp4', videoUrl:'videos/lesson5.mp4', materials:[],
+    homework:'Соберите своего ассистента, пройдите пять тестов, замерьте время на трёх задачах и отправьте результаты в бот курса. Подробный порядок и критерии оценки на странице «Курсовая работа».' }
+];
+
+/* ---------- 2а. Входной / итоговый тест (строго по материалам уроков 1–5) ----------
+   В данных правильный вариант всегда первый; порядок показа перемешивается
+   детерминированно (rotate), чтобы правильный ответ стоял на разных местах. */
+var TEST = [
+  { l:1, q:'Как языковая модель составляет ответ?',
+    a:['Предсказывает следующий фрагмент текста по закономерностям, выученным на огромном количестве текстов','Ищет готовый ответ в интернете в момент вопроса','Достаёт подходящий ответ из встроенной копии интернета','Понимает смысл вопроса так же, как человек'],
+    e:'Модель предсказывает следующий токен. Интернет внутри себя она не хранит, она хранит закономерности языка.' },
+  { l:1, q:'Что такое токен?',
+    a:['Кусочек текста, которому присвоен номер в словаре модели','Пароль для входа в ИИ-сервис','Одно целое предложение ответа','Единица оплаты подписки'],
+    e:'Текст режется на кусочки, и каждому присваивается номер в словаре модели. Длину запроса и ответа модели считают в токенах.' },
+  { l:1, q:'Какую температуру лучше выбрать для фактов и расчётов?',
+    a:['Низкую: ответы точнее и предсказуемее','Высокую: ответы разнообразнее','Любую: на ответ она не влияет','Максимальную: так модель лучше считает'],
+    e:'Низкая температура даёт точные и предсказуемые ответы. Высокая подходит для идей и текстов.' },
+  { l:1, q:'Нейросеть уверенно вписала в письмо дату, которой не было в вашем запросе. Как называется такая ошибка?',
+    a:['Галлюцинация','Токенизация','Температура','Мультимодальность'],
+    e:'Модель заполняет пробел самым правдоподобным вариантом и делает это тем же уверенным тоном. Чаще всего ошибки в цифрах, датах, именах и ссылках.' },
+  { l:1, q:'Какой приём из курса заметно снижает выдумки модели?',
+    a:['Разрешить модели сказать «не знаю» и давать ей факты самому','Попросить отвечать увереннее','Писать запрос как можно короче','Повысить температуру'],
+    e:'Давайте факты сами, просите отвечать только по документу и показывать цитату, разрешайте модели не знать.' },
+  { l:2, q:'Из каких пяти частей состоит формула запроса?',
+    a:['Роль, задача, контекст, формат, ограничения','Приветствие, вопрос, благодарность, оценка, повтор','Тема, ключевые слова, длина, язык, шрифт','Цель, бюджет, срок, исполнитель, отчёт'],
+    e:'Роль, задача, контекст, формат, ограничения: развёрнутая версия формулы «кто, что, зачем, как, чего нельзя».' },
+  { l:2, q:'Первый ответ нейросети вас не устроил. Как действовать по правилам курса?',
+    a:['Считать его черновиком: уточнять, критиковать и проверять','Удалить чат и больше не использовать ИИ для этой задачи','Принять как есть: модель знает лучше','Скопировать ответ клиенту, а потом поправить'],
+    e:'Первый ответ это черновик. Работа идёт диалогом: уточнения, критика, проверка.' },
+  { l:2, q:'Что такое приём «запрос на запрос»?',
+    a:['Отправить черновик запроса и попросить нейросеть задать уточняющие вопросы и переписать его','Задать один и тот же вопрос двум нейросетям','Повторять запрос, пока ответ не станет длиннее','Спросить нейросеть, кто её создал'],
+    e:'Нейросеть находит пустые места в вашем запросе, вы отвечаете на вопросы и получаете улучшенный запрос.' },
+  { l:3, q:'Какие два запрета действуют при работе с ИИ в продажах?',
+    a:['Не выдумывать и не отправлять клиенту вслепую','Не писать клиентам на «вы» и не звонить по утрам','Не использовать таблицы и не делать презентации','Не задавать вопросов и не отвечать на возражения'],
+    e:'Нейросеть не должна придумывать факты, цифры и кейсы, а вы не отправляете клиенту ничего, что не прочитали и не проверили.' },
+  { l:3, q:'По какой схеме курс советует описывать продукт в коммерческом предложении?',
+    a:['Свойство, выгода, доказательство','Цена, скидка, срочность','Проблема, страх, дефицит','Логотип, слоган, контакты'],
+    e:'Предложение пишется про клиента: какое свойство, какая выгода для него и чем это подтверждается.' },
+  { l:4, q:'Нужно посчитать итоги по большой таблице. Как правильно по курсу?',
+    a:['Нейросеть подсказывает метод и формулу, считает таблица, результат проверяем на трёх строках','Вставить таблицу и принять цифры нейросети без проверки','Попросить нейросеть посчитать всё в уме','Считать только вручную: с таблицами нейросеть не работает'],
+    e:'ИИ даёт метод и формулу, считает таблица, а проверка на нескольких строках ловит ошибку в формуле.' },
+  { l:4, q:'Какой вопрос помогает решить, можно ли вставить данные в чат с ИИ?',
+    a:['Отправили бы вы это незнакомцу на личную почту? Если нет, не вставляйте','Платный ли у вас тариф? Если да, можно всё','Меньше ли текст одной страницы? Если да, можно','Удалите ли вы чат после ответа? Если да, можно'],
+    e:'Правило урока 4: если не отправили бы незнакомцу, не вставляйте. Пароли, карты, персональные данные и внутренние документы в чат не попадают.' },
+  { l:4, q:'Как сделать ответ по длинному документу надёжнее?',
+    a:['Просить цитаты и номера страниц, на которые опирается ответ','Просить отвечать короче','Загрузить документ два раза','Просить отвечать по памяти, без документа'],
+    e:'Цитата и страница позволяют быстро проверить ответ. Если цитаты нет, это повод насторожиться.' },
+  { l:5, q:'Какие три показателя курс предлагает измерять, чтобы понять пользу ИИ?',
+    a:['Время на задачу, количество правок, результат','Число запросов, длину ответов, число смайликов','Стоимость подписки, скорость интернета, размер экрана','Количество нейросетей, лайки, просмотры'],
+    e:'Время до и после, сколько раз пришлось переделывать и результат: ответы клиентов, встречи, договорённости.' },
+  { l:5, q:'Из каких частей состоит инструкция своего ассистента?',
+    a:['Роль, знания, правила, формат, границы','Имя, аватар, пароль, тариф, язык','Приветствие, шутка, вопрос, прощание, подпись','Цель, бюджет, срок, команда, отчёт'],
+    e:'Та же формула запроса, развёрнутая под постоянную работу: роль, знания, правила, формат и границы.' }
+];
+function testOrder(i){ var k = (i * 3 + 1) % 4; return [0,1,2,3].map(function(p){ return (p + k) % 4; }); }
+function testLevel(score){
+  if(score >= 11) return 'уверенный уровень';
+  if(score >= 6) return 'базовый уровень';
+  return 'начальный уровень';
+}
+
+/* ---------- 3. Хранилище ---------- */
+var STORAGE_KEY = 'neuroskill_progress_v2';
+var COOKIE_KEY = 'neuroskill_cookie_consent_v1';
+var appEl = document.getElementById('app');
+
+function readProgress(){
+  try { var raw = localStorage.getItem(STORAGE_KEY); return raw ? JSON.parse(raw) : {}; }
+  catch(e){ return {}; }
+}
+function writeProgress(data){
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch(e){}
+}
+var progress = readProgress();
+
+function getProgress(id){ return progress[id] || {}; }
+function isLessonCompleted(id){ var p = getProgress(id); return !!(p.survey || p.homeworkDone); }
+function isLessonUnlocked(id){ return id <= 1 || isLessonCompleted(id - 1); }
+
+function toggleWatched(id){
+  var p = getProgress(id); p.watched = !p.watched; progress[id] = p; writeProgress(progress);
+}
+function markWatched(id){
+  var p = getProgress(id);
+  if(!p.watched){ p.watched = true; progress[id] = p; writeProgress(progress); updateLectureUI(parseHash()); }
+}
+function toggleHomeworkDone(id){
+  var p = getProgress(id); p.homeworkDone = !p.homeworkDone; progress[id] = p; writeProgress(progress);
+}
+function saveSurvey(id, data){
+  var p = getProgress(id); p.survey = data; progress[id] = p; writeProgress(progress);
+}
+
+/* ---------- 4. Удаление данных (пункт 20) ---------- */
+function deleteAllData(){
+  [STORAGE_KEY, COOKIE_KEY, 'neuroskill_tests_v1', 'neuroskill_final_v1'].forEach(function(k){
+    try { localStorage.removeItem(k); } catch(e){}
+  });
+  progress = {};
+  hideCookieBanner();
+}
+
+/* ---------- 5. Иконки ---------- */
+var ICONS = {
+  clock:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>',
+  doc:'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5"/></svg>',
+  check:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>',
+  send:'<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>',
+  play:'<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z" fill="currentColor" stroke="none"/></svg>',
+  star:'<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M12 2l2.9 6.26 6.6.72-4.95 4.6 1.35 6.62L12 16.9 6.1 20.2l1.35-6.62L2.5 8.98l6.6-.72z"/></svg>',
+  lock:'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>'
+};
+
+/* ---------- 6. Экранирование (защита от XSS при будущем контенте) ---------- */
+function esc(str){
+  return String(str).replace(/[&<>"']/g, function(ch){
+    return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[ch];
+  });
+}
+
+/* ---------- 7. Тема урока ---------- */
+function tagChip(l){
+  return '<div class="tool-chips"><span class="tool-chip chip-all">' + esc(l.tag || '') + '</span></div>';
+}
+/* Безопасные ссылки: только https или относительный путь внутри сайта */
+function isSafeUrl(u, allowRelative){
+  u = String(u || '').trim();
+  if(/^https:\/\/[^\s"'<>]+$/i.test(u)) return true;
+  return !!allowRelative && /^[\w\-.\/]+$/.test(u) && u.indexOf('..') === -1 && u.charAt(0) !== '/';
+}
+var ACCENTS = ['accent-blue','accent-cyan','accent-amber','accent-violet','accent-magenta'];
+function accentFor(l){ return ACCENTS[(l.id - 1) % ACCENTS.length]; }
+
+/* ---------- 8. Плеер ---------- */
+function placeholderHtml(text, note, live){
+  return '<div class="player-placeholder reveal' + (live ? ' in-view' : '') + '" role="img" aria-label="' + esc(text) + '">' +
+    '<span class="ph-icon">' + ICONS.play + '</span>' +
+    '<p class="ph-text">' + esc(text) + '</p>' +
+    (note ? '<p class="ph-note">' + esc(note) + '</p>' : '') +
+  '</div>';
+}
+function buildPlayer(lecture){
+  var url = String(lecture.videoUrl || '').trim();
+  var soon = placeholderHtml('Видео скоро появится', 'Урок появится здесь после публикации.');
+  if(!url) return soon;
+  var type = lecture.videoType || 'mp4';
+  var titleAttr = 'Видеоурок ' + lecture.id + ': ' + esc(lecture.title);
+  var frame = function(src){
+    return '<div class="video-frame reveal"><iframe src="' + esc(src) + '" title="' + titleAttr + '" loading="lazy"' +
+      ' allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></div>';
+  };
+  if(type === 'mp4'){
+    if(!isSafeUrl(url, true)) return soon;
+    return '<div class="video-frame reveal">' +
+      '<video controls preload="metadata" playsinline aria-label="' + titleAttr + '">' +
+      '<source src="' + esc(url) + '" type="video/mp4">' +
+      'Ваш браузер не поддерживает встроенное видео.' +
+      '</video></div>';
+  }
+  if(type === 'youtube'){
+    var m = url.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
+    return m ? frame('https://www.youtube.com/embed/' + m[1]) : soon;
+  }
+  if(type === 'vk'){
+    return /^https:\/\/(vk\.com|vkvideo\.ru)\/video_ext\.php\?/i.test(url) ? frame(url) : soon;
+  }
+  if(type === 'rutube'){
+    if(/^https:\/\/rutube\.ru\/play\/embed\/[\w-]+/i.test(url)) return frame(url);
+    if(/^[\w-]+$/.test(url)) return frame('https://rutube.ru/play/embed/' + url);
+    return soon;
+  }
+  return soon;
+}
+
+/* ---------- 9. Статусы ---------- */
+function statusFor(lecture){
+  var p = getProgress(lecture.id);
+  if(p.homeworkDone) return { text:'ДЗ сдано', cls:'badge-solid', done:true };
+  if(p.survey) return { text:'Просмотрена', cls:'badge-accent', done:true };
+  if(p.watched) return { text:'Нужен опрос', cls:'badge-warn', done:false };
+  return { text:'Не начата', cls:'', done:false };
+}
+function badgeHtml(s){
+  return '<span class="badge ' + s.cls + '">' + (s.done ? ICONS.check + ' ' : '') + s.text + '</span>';
+}
+function botLink(param){ return 'https://t.me/' + BOT_USERNAME + (param ? '?start=' + encodeURIComponent(param) : ''); }
+function telegramHomeworkLink(id){ return botLink('lecture_' + id); }
+
+function materialsList(lecture){
+  if(!lecture.materials.length){
+    return '<p class="empty-note">Материалы будут добавлены вместе с публикацией видеоролика.</p>';
+  }
+  var items = lecture.materials.map(function(m){
+    if(m.url && isSafeUrl(m.url, true)){
+      return '<li><a class="material-link" href="' + esc(m.url) + '" target="_blank" rel="noopener">' +
+        ICONS.doc + '<span>' + esc(m.title) + '</span></a></li>';
+    }
+    return '<li><span class="material-link">' + ICONS.doc + '<span>' + esc(m.title) + '</span></span></li>';
+  }).join('');
+  return '<ul class="materials-list">' + items + '</ul>';
+}
+
+function homeworkBlock(lecture, p){
+  var done = !!p.homeworkDone;
+  return '<p class="homework-text">' + esc(lecture.homework) + '</p>' +
+    '<div class="homework-actions">' +
+      '<a class="btn btn-primary" href="' + telegramHomeworkLink(lecture.id) + '"' +
+      ' target="_blank" rel="noopener">' + ICONS.send + 'Сдать в Telegram-бота</a>' +
+      '<button type="button" class="btn btn-ghost" data-action="mark-homework" data-id="' + lecture.id + '"' +
+      ' aria-pressed="' + done + '">' +
+      (done ? 'Отметить как не сданное' : 'Отметить ДЗ как сданное') +
+      '</button>' +
+    '</div>' +
+    '<p class="hint">Подсказка: нажмите Start в боте и отправьте решение.</p>';
+}
+
+/* ---------- 10. Опрос ---------- */
+function surveyBlock(lecture, p){
+  if(p.survey){ return surveySuccessHtml(lecture.id, false); }
+  return '<section class="survey-section reveal" aria-labelledby="survey-title" data-survey="' + lecture.id + '">' +
+    '<h2 id="survey-title">Опрос после урока</h2>' +
+    '<p class="survey-intro">Это занимает 30 секунд. Урок засчитывается после отправки опроса, и открывается следующий. ' +
+    'Ответы сохраняются только в вашем браузере. Чтобы отзыв увидела команда, после отправки нажмите «Отправить отзыв команде».</p>' +
+
+    '<div class="survey-field">' +
+      '<span class="survey-label" id="sv-rating-label">Насколько полезным был урок? <span class="req">*</span></span>' +
+      '<div class="stars" role="radiogroup" aria-labelledby="sv-rating-label" data-survey-field="rating">' +
+        '<button type="button" class="star" data-star="1" role="radio" aria-checked="false" aria-label="1 из 5" tabindex="0">' + ICONS.star + '</button>' +
+        '<button type="button" class="star" data-star="2" role="radio" aria-checked="false" aria-label="2 из 5" tabindex="-1">' + ICONS.star + '</button>' +
+        '<button type="button" class="star" data-star="3" role="radio" aria-checked="false" aria-label="3 из 5" tabindex="-1">' + ICONS.star + '</button>' +
+        '<button type="button" class="star" data-star="4" role="radio" aria-checked="false" aria-label="4 из 5" tabindex="-1">' + ICONS.star + '</button>' +
+        '<button type="button" class="star" data-star="5" role="radio" aria-checked="false" aria-label="5 из 5" tabindex="-1">' + ICONS.star + '</button>' +
+      '</div>' +
+      '<span class="field-error" data-error="rating" role="alert"></span>' +
+    '</div>' +
+
+    '<div class="survey-field">' +
+      '<span class="survey-label" id="sv-diff-label">Насколько сложным показался материал? <span class="req">*</span></span>' +
+      '<div class="seg-group" role="radiogroup" aria-labelledby="sv-diff-label" data-survey-field="difficulty">' +
+        '<button type="button" class="seg" data-seg="easy" role="radio" aria-checked="false" tabindex="0">Легко</button>' +
+        '<button type="button" class="seg" data-seg="ok" role="radio" aria-checked="false" tabindex="-1">Нормально</button>' +
+        '<button type="button" class="seg" data-seg="hard" role="radio" aria-checked="false" tabindex="-1">Сложно</button>' +
+      '</div>' +
+      '<span class="field-error" data-error="difficulty" role="alert"></span>' +
+    '</div>' +
+
+    '<div class="survey-field">' +
+      '<span class="survey-label">Что было сложнее всего? (можно выбрать несколько)</span>' +
+      '<div class="chip-group" data-survey-field="hard">' +
+        '<button type="button" class="chip" data-chip="prompts">Промпты</button>' +
+        '<button type="button" class="chip" data-chip="examples">Примеры</button>' +
+        '<button type="button" class="chip" data-chip="terms">Термины</button>' +
+        '<button type="button" class="chip" data-chip="homework">Задание</button>' +
+        '<button type="button" class="chip" data-chip="video">Видео</button>' +
+        '<button type="button" class="chip" data-chip="nothing">Ничего</button>' +
+      '</div>' +
+    '</div>' +
+
+    '<div class="survey-field">' +
+      '<label class="survey-label" for="sv-liked">Что понравилось?</label>' +
+      '<textarea class="input-text" id="sv-liked" data-survey-input="liked" placeholder="Например: понятные примеры, разбор на реальном кейсе..."></textarea>' +
+    '</div>' +
+
+    '<div class="survey-field">' +
+      '<label class="survey-label" for="sv-unclear">Что было непонятно / стоит доработать?</label>' +
+      '<textarea class="input-text" id="sv-unclear" data-survey-input="unclear" placeholder="Например: хотелось бы больше примеров промптов..."></textarea>' +
+    '</div>' +
+
+    '<label class="consent-line">' +
+      '<input type="checkbox" data-survey-input="consent">' +
+      '<span>Я понимаю, что ответы хранятся только в этом браузере, и не указываю в них персональные данные (ФИО, телефоны, адреса). <a href="#/legal#privacy">Подробнее</a> <span class="req">*</span></span>' +
+    '</label>' +
+    '<span class="field-error" data-error="consent" role="alert"></span>' +
+
+    '<div class="survey-submit">' +
+      '<button type="button" class="btn btn-primary" data-action="submit-survey" data-id="' + lecture.id + '">Отправить отзыв</button>' +
+    '</div>' +
+  '</section>';
+}
+
+function surveySuccessHtml(id, live){
+  return '<section class="survey-section reveal' + (live ? ' in-view' : '') + '" aria-labelledby="survey-title">' +
+    '<div class="survey-success">' +
+      '<div class="check-circle">' + ICONS.check + '</div>' +
+      '<h3 id="survey-title" tabindex="-1">Спасибо, урок засчитан!</h3>' +
+      '<p>Ответ сохранён в вашем браузере. Если хотите, чтобы его увидела команда, отправьте отзыв боту.</p>' +
+      '<p class="survey-bot"><a class="btn btn-ghost" href="' + botLink('feedback_' + id) + '" target="_blank" rel="noopener">' + ICONS.send + 'Отправить отзыв команде</a></p>' +
+    '</div>' +
+  '</section>';
+}
+
+/* ---------- 11. Главная ---------- */
+function renderHome(){
+  var doneCount = LECTURES.filter(function(l){ return isLessonCompleted(l.id); }).length;
+  var cards = LECTURES.map(function(l){
+    var s = statusFor(l), accent = accentFor(l), num = String(l.id).padStart(2,'0');
+    var unlocked = isLessonUnlocked(l.id);
+    if(!unlocked){
+      return '<li><article class="lecture-card ' + accent + ' is-locked">' +
+        '<span class="card-strip" aria-hidden="true"></span>' +
+        '<div class="card-top">' +
+          '<span class="card-num">' + num + '</span>' +
+          '<span class="badge badge-warn">' + ICONS.lock + ' Урок ' + (l.id - 1) + '</span>' +
+        '</div>' +
+        '<h3 class="card-title">' + esc(l.title) + '</h3>' +
+        tagChip(l) +
+        '<p class="card-duration">' + ICONS.clock + esc(l.duration) + '</p>' +
+        '<p class="lock-hint">Сначала пройдите урок ' + (l.id - 1) + ': посмотрите видео и ответьте на опрос.</p>' +
+      '</article></li>';
+    }
+    var stateCls = s.done ? ' is-done' : (getProgress(l.id).watched ? ' is-watched' : '');
+    return '<li><article class="lecture-card ' + accent + stateCls + '">' +
+      '<span class="card-strip" aria-hidden="true"></span>' +
+      '<div class="card-top">' +
+        '<span class="card-num">' + num + '</span>' +
+        badgeHtml(s) +
+      '</div>' +
+      '<h3 class="card-title"><a class="card-link" href="#/lecture/' + l.id + '">' + esc(l.title) + '</a></h3>' +
+      tagChip(l) +
+      '<p class="card-duration">' + ICONS.clock + esc(l.duration) + '</p>' +
+    '</article></li>';
+  }).join('');
+
+  return '<section class="hero reveal">' +
+      '<p class="hero-kicker">Специализация • ИИ в продажах</p>' +
+      '<h1 class="hero-title">Продажи, которые усиливает нейросеть</h1>' +
+      '<p class="hero-subtitle">5 бесплатных видеоуроков по 20 минут: как устроены нейросети, как писать запросы, ИИ в продажах, документы и безопасность данных, свой ИИ-ассистент. ' +
+      'Уроки открываются последовательно: следующий доступен после прохождения предыдущего.</p>' +
+      '<div class="hero-actions">' +
+        '<a class="btn btn-primary btn-lg" href="#/lecture/1">Начать с первого урока</a>' +
+        '<a class="btn btn-ghost btn-lg" href="#/test">Пройти входной тест</a>' +
+      '</div>' +
+    '</section>' +
+
+    '<section class="steps-section reveal" aria-labelledby="steps-title">' +
+      '<h2 id="steps-title" class="section-title">Как проходит обучение</h2>' +
+      '<ol class="steps-list">' +
+        '<li class="step"><span class="step-num">1</span><h3>Смотришь лекцию</h3>' +
+          '<p>Видео около 20 минут, по одному уроку за раз. Перед первым уроком пройдите входной тест.</p></li>' +
+        '<li class="step"><span class="step-num">2</span><h3>Отвечаешь на опрос</h3>' +
+          '<p>30 секунд обратной связи — урок засчитан, и открывается следующий.</p></li>' +
+        '<li class="step"><span class="step-num">3</span><h3>Сдаёшь задание в Telegram-бота</h3>' +
+          '<p>Нажмите «Старт» в боте и отправьте решение. В конце курса сдаёте курсовую работу.</p></li>' +
+      '</ol>' +
+    '</section>' +
+
+    '<section class="lectures-section reveal" aria-labelledby="lectures-title">' +
+      '<div class="section-head">' +
+        '<h2 id="lectures-title" class="section-title">Лекции</h2>' +
+        '<div class="progress-block">' +
+          '<p class="progress-label">Пройдено ' + doneCount + ' из ' + LECTURES.length + '</p>' +
+          '<div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="' + LECTURES.length + '"' +
+          ' aria-valuenow="' + doneCount + '" aria-label="Прогресс курса">' +
+            '<div class="progress-fill" style="width:' + (doneCount / LECTURES.length * 100) + '%"></div>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+      '<ul class="lecture-grid">' + cards + '</ul>' +
+    '</section>' +
+    '<section class="lectures-section reveal" aria-labelledby="extra-title">' +
+      '<h2 id="extra-title" class="section-title">Начало и финал курса</h2>' +
+      '<div class="extra-grid">' +
+        '<a class="extra-card" href="#/test"><span class="badge badge-accent">До урока 1</span><h3>Входной тест</h3>' +
+          '<p>' + TEST.length + ' вопросов, 5 минут. Показывает стартовый уровень, после урока 5 тот же тест покажет прирост.</p></a>' +
+        '<a class="extra-card" href="#/final"><span class="badge badge-warn">После урока 5</span><h3>Курсовая работа</h3>' +
+          '<p>Свой ИИ-ассистент и замер пользы: экономия времени, правки, надёжность. Критерии и калькулятор показателей.</p></a>' +
+      '</div>' +
+    '</section>';
+}
+
+/* ---------- 12. Навигация лекции ---------- */
+function buildLectureNav(route){
+  var completed = isLessonCompleted(route.id);
+  var prevBtn = route.id > 1
+    ? '<a class="btn btn-ghost" href="#/lecture/' + (route.id - 1) + '">← Предыдущая</a>'
+    : '<span class="btn btn-ghost is-disabled" aria-disabled="true">← Предыдущая</span>';
+  var nextBtn;
+  if(route.id >= LECTURES.length){
+    nextBtn = '<span class="btn btn-ghost is-disabled" aria-disabled="true">Следующая →</span>';
+  } else if(!completed){
+    nextBtn = '<span class="btn btn-ghost is-disabled" aria-disabled="true" ' +
+      'title="Сначала ответьте на опрос после этого урока">Следующая →</span>';
+  } else {
+    nextBtn = '<a class="btn btn-ghost" href="#/lecture/' + (route.id + 1) + '">Следующая →</a>';
+  }
+  return prevBtn + nextBtn;
+}
+
+function renderLecture(route){
+  var lecture = LECTURES.find(function(l){ return l.id === route.id; });
+  if(!lecture) return renderHome();
+  var p = getProgress(lecture.id), s = statusFor(lecture);
+  var watchedBtnText = p.watched ? 'Отметить как непросмотренную' : 'Отметить как просмотренную';
+  return '<a class="back-link" href="#/">← Все лекции</a>' +
+
+    '<section class="lecture-hero reveal">' +
+      '<div class="lecture-meta">' +
+        badgeHtml(s) + tagChip(lecture) +
+        '<span class="lecture-duration">' + ICONS.clock + esc(lecture.duration) + '</span>' +
+      '</div>' +
+      '<h1 class="lecture-title">' + lecture.id + '. ' + esc(lecture.title) + '</h1>' +
+      '<p class="lecture-desc">' + esc(lecture.description) + '</p>' +
+    '</section>' +
+
+    buildPlayer(lecture) +
+
+    '<section class="lecture-body reveal">' +
+      '<div class="tabs" role="tablist" aria-label="Разделы лекции">' +
+        '<button type="button" class="tab is-active" id="tab-materials" role="tab"' +
+        ' aria-controls="panel-materials" aria-selected="true" data-tab="materials">Материалы</button>' +
+        '<button type="button" class="tab" id="tab-homework" role="tab"' +
+        ' aria-controls="panel-homework" aria-selected="false" data-tab="homework">Домашнее задание</button>' +
+      '</div>' +
+      '<div class="tab-panels">' +
+        '<div id="panel-materials" role="tabpanel" aria-labelledby="tab-materials" class="tab-panel">' +
+          materialsList(lecture) +
+        '</div>' +
+        '<div id="panel-homework" role="tabpanel" aria-labelledby="tab-homework" class="tab-panel" hidden>' +
+          homeworkBlock(lecture, p) +
+        '</div>' +
+      '</div>' +
+    '</section>' +
+
+    '<section class="lecture-actions reveal">' +
+      '<button type="button" class="btn btn-primary" data-action="mark-watched" data-id="' + lecture.id + '"' +
+      ' aria-pressed="' + !!p.watched + '">' + watchedBtnText + '</button>' +
+    '</section>' +
+
+    surveyBlock(lecture, p) +
+
+    '<nav class="lecture-nav" aria-label="Переход между лекциями">' + buildLectureNav(route) + '</nav>';
+}
+
+function renderLocked(route){
+  var prevId = route.id - 1;
+  var prev = LECTURES.find(function(l){ return l.id === prevId; });
+  var prevTitle = prev ? prev.title : '';
+  return '<a class="back-link" href="#/">← Все лекции</a>' +
+    '<section class="locked-page reveal">' +
+      '<span class="locked-icon">' + ICONS.lock + '</span>' +
+      '<h1 class="locked-title">Урок ' + route.id + ' пока закрыт</h1>' +
+      '<p class="locked-text">Курс проходит поэтапно: следующий урок открывается только после того, ' +
+      'как вы пройдёте предыдущий — посмотрите видео и ответьте на опрос.</p>' +
+      '<div class="locked-prev">' +
+        '<span class="badge badge-warn">' + ICONS.lock + ' Нужно завершить</span>' +
+        '<p><strong>Урок ' + prevId + ': «' + esc(prevTitle) + '»</strong><br>' +
+        'Посмотрите лекцию и отправьте опрос после урока — и всё откроется.</p>' +
+        '<a class="btn btn-primary" href="#/lecture/' + prevId + '">Перейти к уроку ' + prevId + '</a>' +
+      '</div>' +
+    '</section>';
+}
+
+/* ---------- 13. «О курсе» ---------- */
+function renderAbout(){
+  var program = LECTURES.map(function(l){
+    var unlocked = isLessonUnlocked(l.id);
+    var lockMark = unlocked ? '' : ICONS.lock;
+    return '<li class="program-item">' +
+      '<a class="program-link" href="#/lecture/' + l.id + '">' +
+        '<span class="program-num">' + l.id + '</span>' +
+        '<span class="program-title">' + esc(l.title) + '</span>' +
+        '<span class="program-duration">' + esc(l.duration) + ' ' + lockMark + '</span>' +
+      '</a></li>';
+  }).join('');
+
+  var stats = [
+    ['86,3%','хотят лучше уметь работать с нейросетями'],
+    ['43,1%','не знают, с чего начать'],
+    ['70,6%','уже пользуются нейросетями'],
+    ['19,6%','дошли до конца онлайн-курса ранее'],
+    ['66,7%','подходят уроки до 20 минут'],
+    ['62,7%','важен конкретный результат и навыки'],
+    ['82,3%','удобно сдавать домашку Telegram-боту'],
+    ['85%','заинтересовал бесплатный курс']
+  ];
+  var statCards = stats.map(function(st){
+    return '<div class="stat-card"><div class="stat-value">' + st[0] + '</div><div class="stat-label">' + st[1] + '</div></div>';
+  }).join('');
+
+  var team = ['Галеев Евгений','Рыкова Анна','Белов Матвей','Ясашный Александр','Кузьменко Анна'];
+  var teamCards = team.map(function(name){
+    var initials = name.split(' ').map(function(w){ return w[0]; }).join('');
+    return '<div class="team-card"><div class="team-avatar" aria-hidden="true">' + initials + '</div><div class="team-name">' + esc(name) + '</div></div>';
+  }).join('');
+
+  var competitors = [
+    { who:'Платные онлайн-школы', weak:'Длинные программы, много теории', diff:'Бесплатно: 5 уроков по 20 минут' },
+    { who:'Видео-гайды и блогеры', weak:'Смотришь, но не практикуешь', diff:'Практика и проверка ботом' },
+    { who:'Универсальные курсы по ИИ', weak:'Не под задачи продаж', diff:'Специализация: ИИ в продажах' }
+  ];
+  var cmpRows = competitors.map(function(c){
+    return '<div class="cmp-row">' +
+      '<div class="cmp-cell"><strong>' + esc(c.who) + '</strong></div>' +
+      '<div class="cmp-cell">' + esc(c.weak) + '</div>' +
+      '<div class="cmp-cell diff">' + esc(c.diff) + '</div>' +
+    '</div>';
+  }).join('');
+  var cmpTable = '<div class="cmp-table">' +
+    '<div class="cmp-row cmp-head">' +
+      '<div class="cmp-cell">Конкуренты</div>' +
+      '<div class="cmp-cell">Слабое место</div>' +
+      '<div class="cmp-cell">Чем отличаемся мы</div>' +
+    '</div>' + cmpRows + '</div>';
+
+  var risks = [
+    ['Сбои бота','предварительное тестирование'],
+    ['Сложность уроков','проверка на знакомых'],
+    ['Недобор участников','ежедневный контроль набора'],
+    ['Конкурентные бесплатные сайты','анализ конкурентов и поиск отличий']
+  ];
+  var riskList = risks.map(function(r){
+    return '<li><span class="risk-arrow">→</span><span><strong>' + esc(r[0]) + '</strong> — ' + esc(r[1]) + '</span></li>';
+  }).join('');
+
+  var goalItems = [
+    ['Конкретная','запустить сайт с курсом «Нейронавык» — 5 практических уроков по использованию нейросетей в продажах.'],
+    ['Измеримая','5 уроков по 20 минут, 15 участников доходят до конца, чат-бот принимает и проверяет домашки, обратная связь после каждого урока минимум от 80% участников, средняя оценка урока не ниже 4 из 5.'],
+    ['Достижимая','маленький формат — 15 человек и 5 коротких уроков; сайт и бот собираются на доступных инструментах.'],
+    ['Актуальная','нейросети сейчас реально нужны студентам, абитуриентам и бизнесу — спрос подтверждён опросом.'],
+    ['Ограниченная по времени','MVP запускается за 6 недель проектного цикла, дальше смотрим на результаты и решаем, развивать ли курс.']
+  ];
+  var goalList = goalItems.map(function(g){
+    return '<li>' + ICONS.check + '<span><strong>' + esc(g[0]) + ':</strong> ' + esc(g[1]) + '</span></li>';
+  }).join('');
+
+  var skills = [
+    'Понимать, как работает языковая модель и где она чаще всего ошибается.',
+    'Писать запросы по формуле: роль, задача, контекст, формат, ограничения.',
+    'Готовиться к встречам, отрабатывать возражения и писать предложения вместе с ИИ.',
+    'Работать с документами и таблицами, не нарушая правила безопасности данных.',
+    'Собрать своего ИИ-ассистента и измерить пользу: время, правки, результат.'
+  ];
+  var toolsList = skills.map(function(t){
+    return '<li>' + ICONS.check + '<span>' + esc(t) + '</span></li>';
+  }).join('');
+
+  return '<section class="page-head reveal">' +
+      '<h1 class="page-title">О специализации</h1>' +
+      '<p class="page-lead">«ИИ в продажах»: бесплатный практический курс о том, как работать с нейросетями в повседневной работе с клиентами и не только, от первого запроса до собственного ассистента. ' +
+      'Нейро + навык = нейросеть, ставшая практическим навыком.</p>' +
+    '</section>' +
+
+    '<section class="about-section reveal">' +
+      '<h2 class="section-title">Проблема, которую мы решаем</h2>' +
+      '<ul class="format-list">' +
+        '<li>Люди хотят применять нейросети, но обучение часто не доводит до практического навыка: избыток теории, длинные уроки, мало практики.</li>' +
+        '<li>Часть сервисов из уроков недоступна в России — мотивация умирает на первом занятии.</li>' +
+        '<li>Мы собираем только то, что реально работает: коротко, живо, честно и бесплатно.</li>' +
+      '</ul>' +
+      '<div class="stat-grid">' + statCards + '</div>' +
+      '<p class="survey-note">Статистика приведена по результатам опроса команды (51 респондент, 2026 г.) и используется в учебных целях.</p>' +
+    '</section>' +
+
+    '<section class="about-section reveal">' +
+      '<h2 class="section-title">Формат обучения</h2>' +
+      '<ul class="format-list">' +
+        '<li>5 бесплатных видеолекций по ~20 минут — можно проходить в своём темпе, но строго по порядку: следующий урок открывается после предыдущего.</li>' +
+        '<li>После каждого урока — короткий опрос: он помогает нам улучшить курс и подтверждает прохождение урока.</li>' +
+        '<li>К каждой лекции — материалы и домашнее задание на реальных задачах продаж.</li>' +
+        '<li>Решение отправляется в Telegram-бота @' + BOT_USERNAME + ', бот даёт обратную связь и статус: сдано, проверено или нужна доработка.</li>' +
+        '<li>Входной тест до первого урока и итоговый после пятого показывают прирост знаний, курсовая работа подводит итог курса.</li>' +
+      '</ul>' +
+      '<div class="usp-card"><p>УТП: бесплатный курс по ИИ в продажах — 5 уроков по 20 минут, практика и проверка ботом.</p></div>' +
+    '</section>' +
+
+    '<section class="about-section reveal">' +
+      '<h2 class="section-title">Цель проекта (SMART)</h2>' +
+      '<ul class="check-list">' + goalList + '</ul>' +
+    '</section>' +
+
+    '<section class="about-section reveal">' +
+      '<h2 class="section-title">Для кого курс</h2>' +
+      '<ul class="format-list">' +
+        '<li>Студенты и школьники 11-х классов — научиться применять нейросети в учёбе и будущей работе.</li>' +
+        '<li>Взрослые 16–24 лет — не отставать от трендов и расти в профессии.</li>' +
+        '<li>Работники компаний и B2B — менеджеры по продажам, которым нужен конкретный результат, а не сертификат.</li>' +
+      '</ul>' +
+    '</section>' +
+
+    '<section class="about-section reveal">' +
+      '<h2 class="section-title">Чему вы научитесь</h2>' +
+      '<ul class="check-list">' + toolsList + '</ul>' +
+    '</section>' +
+
+    '<section class="about-section reveal">' +
+      '<h2 class="section-title">Почему мы, а не другие</h2>' +
+      cmpTable +
+      '<p class="survey-note">85% опрошенных заинтересовал именно бесплатный формат.</p>' +
+    '</section>' +
+
+    '<section class="about-section reveal">' +
+      '<h2 class="section-title">Требования к курсу</h2>' +
+      '<ul class="check-list">' +
+        '<li>' + ICONS.check + '<span><strong>Уроки до ~20 минут</strong> — 66,7% опрошенных.</span></li>' +
+        '<li>' + ICONS.check + '<span><strong>Практика после каждого урока</strong> — 62,7% важен конкретный результат.</span></li>' +
+        '<li>' + ICONS.check + '<span><strong>Проверка домашек ботом</strong> — 82,3% удобно сдавать Telegram-боту.</span></li>' +
+        '<li>' + ICONS.check + '<span><strong>Бесплатный формат</strong> — 85% заинтересовал курс.</span></li>' +
+        '<li>' + ICONS.check + '<span><strong>Рост квалификации сотрудников</strong> — цель заказчика (Astra Linux).</span></li>' +
+      '</ul>' +
+    '</section>' +
+
+    '<section class="about-section reveal">' +
+      '<h2 class="section-title">Как устроен проект</h2>' +
+      '<ul class="format-list">' +
+        '<li>Сайт — вайбкодинг на Kimi и Claude Code: быстро и без разработчиков.</li>' +
+        '<li>Рабочее пространство — Telegram-группа: задачи каждому участнику с дедлайном до 23:59, отчёты, общение.</li>' +
+        '<li>Механика: урок → практика → опрос → проверка ботом → навык.</li>' +
+      '</ul>' +
+    '</section>' +
+
+    '<section class="about-section reveal">' +
+      '<h2 class="section-title">Риски и как мы их закрываем</h2>' +
+      '<ul class="format-list risk-list">' + riskList + '</ul>' +
+    '</section>' +
+
+    '<section class="about-section reveal">' +
+      '<h2 class="section-title">Команда</h2>' +
+      '<p class="meta-note">Образовательный трек · Москва, РЭУ им. Г. В. Плеханова · команда «Зеро».</p>' +
+      '<div class="team-grid">' + teamCards + '</div>' +
+    '</section>' +
+
+    '<section class="about-section reveal">' +
+      '<h2 class="section-title">Итог и следующий шаг</h2>' +
+      '<ul class="format-list">' +
+        '<li>Если 15 участников дойдут до конца — гипотеза подтверждена, и проект расширяем.</li>' +
+        '<li>Если нет — дорабатываем формат по отзывам.</li>' +
+        '<li>Следующий шаг: записать 5 бесплатных уроков и набрать 15 участников.</li>' +
+      '</ul>' +
+    '</section>' +
+
+    '<section class="about-section reveal">' +
+      '<h2 class="section-title">Программа курса</h2>' +
+      '<ol class="program-list">' + program + '</ol>' +
+    '</section>';
+}
+
+/* ---------- 13а. Входной и итоговый тест ---------- */
+var TESTS_KEY = 'neuroskill_tests_v1';
+var FINAL_KEY = 'neuroskill_final_v1';
+function readJSON(key){ try { var r = localStorage.getItem(key); return r ? JSON.parse(r) : {}; } catch(e){ return {}; } }
+function writeJSON(key, v){ try { localStorage.setItem(key, JSON.stringify(v)); } catch(e){} }
+function courseCompleted(){ return isLessonCompleted(LECTURES.length); }
+
+function testForm(mode){
+  var qs = TEST.map(function(t, i){
+    var opts = testOrder(i).map(function(orig, p){
+      var id = 'q' + i + '_' + p;
+      return '<label class="q-opt" for="' + id + '">' +
+        '<input type="radio" id="' + id + '" name="q' + i + '" value="' + orig + '">' +
+        '<span>' + esc(t.a[orig]) + '</span></label>';
+    }).join('');
+    return '<fieldset class="q-card" data-q="' + i + '">' +
+      '<legend><span class="q-num">' + (i + 1) + ' / ' + TEST.length + '</span>' + esc(t.q) + '</legend>' +
+      opts + '</fieldset>';
+  }).join('');
+  return '<form class="test-form" data-test-mode="' + mode + '" novalidate>' + qs +
+    '<p class="field-error" data-error="test" role="alert"></p>' +
+    '<button type="submit" class="btn btn-primary btn-lg">' + (mode === 'exit' ? 'Завершить итоговый тест' : 'Завершить входной тест') + '</button>' +
+    '</form>';
+}
+
+function scoreByLesson(answers){
+  var by = {};
+  TEST.forEach(function(t, i){
+    by[t.l] = by[t.l] || { ok:0, total:0 };
+    by[t.l].total++;
+    if(answers[i] === 0) by[t.l].ok++;
+  });
+  return by;
+}
+
+function resultCard(title, r){
+  var by = scoreByLesson(r.answers || []);
+  var rows = Object.keys(by).map(function(l){
+    return '<li><span>Урок ' + l + '</span><strong>' + by[l].ok + ' из ' + by[l].total + '</strong></li>';
+  }).join('');
+  return '<div class="result-card">' +
+    '<p class="result-title">' + title + '</p>' +
+    '<p class="result-score">' + r.score + ' <span>из ' + TEST.length + '</span></p>' +
+    '<p class="result-level">' + testLevel(r.score) + '</p>' +
+    '<ul class="result-by">' + rows + '</ul>' +
+  '</div>';
+}
+
+function answerKey(r){
+  return '<ol class="key-list">' + TEST.map(function(t, i){
+    var mine = (r.answers || [])[i];
+    var ok = mine === 0;
+    return '<li class="' + (ok ? 'is-ok' : 'is-bad') + '"><p class="key-q">' + esc(t.q) + '</p>' +
+      '<p><strong>Правильно:</strong> ' + esc(t.a[0]) + '</p>' +
+      (ok ? '' : '<p><strong>Ваш ответ:</strong> ' + (typeof mine === 'number' ? esc(t.a[mine]) : 'нет ответа') + '</p>') +
+      '<p class="key-e">' + esc(t.e) + ' (урок ' + t.l + ')</p></li>';
+  }).join('') + '</ol>';
+}
+
+function renderTest(){
+  var data = readJSON(TESTS_KEY);
+  var head = '<section class="page-head reveal">' +
+    '<h1 class="page-title">Входной и итоговый тест</h1>' +
+    '<p class="page-lead">' + TEST.length + ' вопросов по материалам пяти уроков, около 5 минут. Входной тест проходите до первого урока: он покажет стартовый уровень. ' +
+    'После урока 5 откроется итоговый тест с теми же вопросами, и вы увидите свой прирост. Ответы хранятся только в вашем браузере.</p>' +
+  '</section>';
+
+  if(!data.entry){
+    return head + '<section class="reveal"><div class="note-card">Не угадывайте: если не знаете ответа, выберите самый правдоподобный вариант. Правильные ответы откроются после итогового теста.</div>' +
+      testForm('entry') + '</section>';
+  }
+
+  var html = head + '<section class="reveal"><div class="result-grid">' + resultCard('Входной тест', data.entry) +
+    (data.exit ? resultCard('Итоговый тест', data.exit) : '') + '</div>';
+
+  if(data.exit){
+    var diff = data.exit.score - data.entry.score;
+    html += '<div class="note-card">Прирост: <strong>' + (diff > 0 ? '+' : '') + diff + '</strong> ' + plural(Math.abs(diff), 'балл', 'балла', 'баллов') +
+      '. Эти цифры понадобятся в <a href="#/final">курсовой работе</a>.</div>' +
+      '<h2 class="section-title key-title">Разбор ответов итогового теста</h2>' + answerKey(data.exit);
+  } else if(courseCompleted()){
+    html += '<h2 class="section-title key-title">Итоговый тест</h2>' + testForm('exit');
+  } else {
+    html += '<div class="note-card">Итоговый тест откроется после прохождения урока 5. Тогда же станут видны правильные ответы.</div>' +
+      '<a class="btn btn-primary" href="#/lecture/1">Перейти к урокам</a>';
+  }
+  return html + '</section>';
+}
+
+function plural(n, one, few, many){
+  var m10 = n % 10, m100 = n % 100;
+  if(m10 === 1 && m100 !== 11) return one;
+  if(m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return few;
+  return many;
+}
+
+function submitTest(form){
+  var mode = form.dataset.testMode === 'exit' ? 'exit' : 'entry';
+  var answers = [], missing = 0;
+  TEST.forEach(function(t, i){
+    var checked = form.querySelector('input[name="q' + i + '"]:checked');
+    if(checked){ answers.push(parseInt(checked.value, 10)); }
+    else { answers.push(null); missing++; }
+    var card = form.querySelector('[data-q="' + i + '"]');
+    if(card) card.classList.toggle('is-missing', !checked);
+  });
+  var err = form.querySelector('[data-error="test"]');
+  if(missing){
+    if(err) err.textContent = 'Ответьте на все вопросы: осталось ' + missing + '.';
+    var first = form.querySelector('.is-missing');
+    if(first) first.scrollIntoView({ behavior:'smooth', block:'center' });
+    return;
+  }
+  var data = readJSON(TESTS_KEY);
+  if(mode === 'exit' && (!data.entry || !courseCompleted())) return;
+  if(mode === 'entry' && data.entry) return;
+  data[mode] = { score: answers.filter(function(a){ return a === 0; }).length, answers: answers, at: Date.now() };
+  writeJSON(TESTS_KEY, data);
+  router();
+  showToast(mode === 'exit' ? 'Итоговый тест сохранён' : 'Входной тест сохранён');
+}
+
+/* ---------- 13б. Курсовая работа ---------- */
+function renderFinal(){
+  var f = readJSON(FINAL_KEY);
+  var tasks = f.tasks || [{},{},{}];
+  function val(v){ return (v === undefined || v === null) ? '' : esc(v); }
+  var taskRows = [0,1,2].map(function(i){
+    var t = tasks[i] || {};
+    return '<div class="calc-row" data-task="' + i + '">' +
+      '<label><span>Задача ' + (i + 1) + '</span><input class="input-line" type="text" maxlength="80" data-f="name" value="' + val(t.name) + '" placeholder="' + ['Первое письмо клиенту','Протокол встречи','Недельный отчёт'][i] + '"></label>' +
+      '<label><span>Вручную, мин</span><input class="input-line" type="number" min="0" max="600" step="1" inputmode="numeric" data-f="before" value="' + val(t.before) + '"></label>' +
+      '<label><span>С ассистентом, мин</span><input class="input-line" type="number" min="0" max="600" step="1" inputmode="numeric" data-f="after" value="' + val(t.after) + '"></label>' +
+      '<label><span>Правок</span><input class="input-line" type="number" min="0" max="50" step="1" inputmode="numeric" data-f="edits" value="' + val(t.edits) + '"></label>' +
+    '</div>';
+  }).join('');
+  var passed = typeof f.passed === 'number' ? f.passed : '';
+  var passOpts = ['', 0, 1, 2, 3, 4, 5].map(function(n){
+    return '<option value="' + n + '"' + (String(n) === String(passed) ? ' selected' : '') + '>' + (n === '' ? 'выберите' : n + ' из 5') + '</option>';
+  }).join('');
+
+  var rubric = [
+    ['Инструкция ассистента: есть все пять частей (роль, знания, правила, формат, границы), формулировки конкретные', 20],
+    ['База знаний: 1–3 файла, всё обезличено, приложен список замен', 15],
+    ['Пять тестовых вопросов проведены, к каждому есть ответ ассистента и ваша оценка «прошёл / не прошёл» (по 3 балла)', 15],
+    ['Замеры: три задачи, минуты до и после, число правок, цифры собственные, а не на глаз', 20],
+    ['Метрики рассчитаны по формулам без ошибок', 10],
+    ['Выводы по дневнику: где оставить ИИ, где усилить запрос, где он не нужен, и один шаг плана на 30 дней', 15],
+    ['Входной и итоговый тест пройдены, указан прирост', 5]
+  ].map(function(r){ return '<tr><td>' + esc(r[0]) + '</td><td class="num">' + r[1] + '</td></tr>'; }).join('');
+
+  return '<section class="page-head reveal">' +
+      '<h1 class="page-title">Курсовая работа</h1>' +
+      '<p class="page-lead">Итоговая работа курса: соберите своего ИИ-ассистента и честно измерьте, сколько времени он экономит. Работа опирается на финальное задание урока 5 и использует приёмы всех уроков. Объём: 3–4 часа в течение недели после урока 5.</p>' +
+    '</section>' +
+
+    '<section class="about-section reveal">' +
+      '<h2 class="section-title">Порядок выполнения</h2>' +
+      '<ol class="final-steps">' +
+        '<li><strong>Выберите три повторяющиеся задачи</strong> из работы или учёбы, например первое письмо клиенту, протокол встречи, недельный отчёт.</li>' +
+        '<li><strong>Замер «до».</strong> Выполните каждую задачу вручную и засеките время по таймеру в минутах.</li>' +
+        '<li><strong>Соберите ассистента</strong> по пяти частям: роль, знания, правила, формат, границы (урок 5). В правилах обязательно запрет выдумывать цифры и факты (уроки 1 и 3).</li>' +
+        '<li><strong>Подготовьте безопасную базу знаний:</strong> 1–3 файла без паролей, персональных данных и внутренних секретов. Запишите, что вы заменили (урок 4).</li>' +
+        '<li><strong>Проведите пять тестов</strong> (урок 5): обычный вопрос по теме; вопрос, ответа на который нет в базе; просьба выдумать цифру или кейс; вопрос не по теме; просьба обойти правила. Для каждого отметьте «прошёл» или «не прошёл».</li>' +
+        '<li><strong>Замер «после».</strong> Выполните те же три задачи с ассистентом: минуты до готового результата и число правок. Проверьте факты перед использованием (урок 3: не отправлять вслепую).</li>' +
+        '<li><strong>Пройдите итоговый тест</strong> на странице <a href="#/test">«Тест»</a>.</li>' +
+        '<li><strong>Сделайте выводы</strong> по дневнику (урок 5): где ИИ оставить, где усилить запрос, где он не нужен. Добавьте один шаг из плана на 30 дней.</li>' +
+      '</ol>' +
+    '</section>' +
+
+    '<section class="about-section reveal">' +
+      '<h2 class="section-title">Измеримые показатели</h2>' +
+      '<div class="metric-grid">' +
+        '<div class="metric"><p class="metric-name">Экономия времени, %</p><p class="metric-formula">(сумма минут вручную − сумма минут с ассистентом) ÷ сумма минут вручную × 100</p></div>' +
+        '<div class="metric"><p class="metric-name">Правки на задачу</p><p class="metric-formula">сумма правок ÷ 3</p></div>' +
+        '<div class="metric"><p class="metric-name">Надёжность ассистента, %</p><p class="metric-formula">пройдено тестов ÷ 5 × 100</p></div>' +
+        '<div class="metric"><p class="metric-name">Прирост знаний</p><p class="metric-formula">итоговый балл − входной балл (из ' + TEST.length + ')</p></div>' +
+        '<div class="metric"><p class="metric-name">Безопасность</p><p class="metric-formula">персональных данных и секретов в материалах: должно быть 0</p></div>' +
+      '</div>' +
+      '<p class="survey-note">Отрицательная экономия тоже честный результат: на коротких задачах настройка иногда дольше самой работы (урок 5). Оценка зависит от честности и качества анализа, а не от размера экономии.</p>' +
+    '</section>' +
+
+    '<section class="about-section reveal">' +
+      '<h2 class="section-title">Калькулятор показателей</h2>' +
+      '<form class="calc" id="final-calc" novalidate>' + taskRows +
+        '<div class="calc-row calc-row-short"><label><span>Пройдено тестов ассистента</span><select class="input-line" data-f="passed">' + passOpts + '</select></label></div>' +
+      '</form>' +
+      '<div id="calc-out" class="calc-out" aria-live="polite">' + calcOutput() + '</div>' +
+      '<div class="homework-actions">' +
+        '<button type="button" class="btn btn-ghost" data-action="copy-report">Скопировать отчёт</button>' +
+        '<a class="btn btn-primary" href="' + botLink('final') + '" target="_blank" rel="noopener">' + ICONS.send + 'Сдать курсовую в бота</a>' +
+      '</div>' +
+      '<p class="hint">Цифры сохраняются только в вашем браузере. В бот отправьте отчёт и приложения из списка ниже.</p>' +
+    '</section>' +
+
+    '<section class="about-section reveal">' +
+      '<h2 class="section-title">Что отправить в бот</h2>' +
+      '<ul class="format-list">' +
+        '<li>Текст инструкции ассистента.</li>' +
+        '<li>Список файлов базы знаний и того, что вы обезличили.</li>' +
+        '<li>Пять тестовых вопросов, ответы ассистента и оценку каждого.</li>' +
+        '<li>Таблицу замеров и рассчитанные показатели (кнопка «Скопировать отчёт»).</li>' +
+        '<li>Выводы: 5–7 предложений.</li>' +
+      '</ul>' +
+    '</section>' +
+
+    '<section class="about-section reveal">' +
+      '<h2 class="section-title">Критерии оценки</h2>' +
+      '<table class="rubric"><thead><tr><th>Критерий</th><th class="num">Баллы</th></tr></thead><tbody>' + rubric +
+      '<tr class="total"><td>Итого</td><td class="num">100</td></tr></tbody></table>' +
+      '<p class="survey-note">85–100: отлично · 70–84: хорошо · 50–69: зачтено · меньше 50: на доработку. Если в материалах найдены персональные данные или секреты, работа возвращается на доработку при любом количестве баллов.</p>' +
+    '</section>';
+}
+
+function readCalcForm(){
+  var form = document.getElementById('final-calc');
+  if(!form) return readJSON(FINAL_KEY);
+  function num(el, max){
+    if(!el || el.value === '') return null;
+    var n = Number(el.value);
+    if(!isFinite(n) || n < 0) return null;
+    return Math.min(Math.round(n), max);
+  }
+  var tasks = [0,1,2].map(function(i){
+    var row = form.querySelector('[data-task="' + i + '"]');
+    return {
+      name: (row.querySelector('[data-f="name"]').value || '').slice(0, 80),
+      before: num(row.querySelector('[data-f="before"]'), 600),
+      after: num(row.querySelector('[data-f="after"]'), 600),
+      edits: num(row.querySelector('[data-f="edits"]'), 50)
+    };
+  });
+  var sel = form.querySelector('[data-f="passed"]');
+  var passed = sel && sel.value !== '' ? parseInt(sel.value, 10) : null;
+  return { tasks: tasks, passed: passed };
+}
+
+function calcMetrics(f){
+  var tasks = (f.tasks || []).filter(function(t){ return t && t.before !== null && t.before !== undefined && t.after !== null && t.after !== undefined; });
+  var complete = tasks.length === 3;
+  var before = tasks.reduce(function(s, t){ return s + t.before; }, 0);
+  var after = tasks.reduce(function(s, t){ return s + t.after; }, 0);
+  var edits = (f.tasks || []).reduce(function(s, t){ return s + (t && typeof t.edits === 'number' ? t.edits : 0); }, 0);
+  var tests = readJSON(TESTS_KEY);
+  return {
+    complete: complete,
+    before: before, after: after,
+    saving: complete && before > 0 ? Math.round((before - after) / before * 1000) / 10 : null,
+    edits: complete ? Math.round(edits / 3 * 10) / 10 : null,
+    reliability: typeof f.passed === 'number' ? f.passed * 20 : null,
+    entry: tests.entry ? tests.entry.score : null,
+    exit: tests.exit ? tests.exit.score : null
+  };
+}
+
+function fmt(v, suffix){ return v === null ? '—' : String(v).replace('.', ',') + (suffix || ''); }
+
+function calcOutput(){
+  var m = calcMetrics(readJSON(FINAL_KEY));
+  var growth = (m.entry !== null && m.exit !== null) ? (m.exit - m.entry > 0 ? '+' : '') + (m.exit - m.entry) : '—';
+  return '<div class="metric-grid">' +
+    '<div class="metric"><p class="metric-name">Время до → после</p><p class="metric-value">' + (m.complete ? m.before + ' → ' + m.after + ' мин' : '—') + '</p></div>' +
+    '<div class="metric"><p class="metric-name">Экономия времени</p><p class="metric-value">' + fmt(m.saving, '%') + '</p></div>' +
+    '<div class="metric"><p class="metric-name">Правки на задачу</p><p class="metric-value">' + fmt(m.edits) + '</p></div>' +
+    '<div class="metric"><p class="metric-name">Надёжность ассистента</p><p class="metric-value">' + fmt(m.reliability, '%') + '</p></div>' +
+    '<div class="metric"><p class="metric-name">Тест: вход → итог</p><p class="metric-value">' + (m.entry === null ? '—' : m.entry) + ' → ' + (m.exit === null ? '—' : m.exit) + ' (' + growth + ')</p></div>' +
+  '</div>' + (m.complete ? '' : '<p class="hint">Заполните минуты «вручную» и «с ассистентом» для всех трёх задач.</p>');
+}
+
+function reportText(){
+  var f = readJSON(FINAL_KEY), m = calcMetrics(f);
+  var lines = ['Курсовая работа «Нейронавык»: замеры', ''];
+  (f.tasks || []).forEach(function(t, i){
+    if(!t) return;
+    lines.push('Задача ' + (i + 1) + (t.name ? ' (' + t.name + ')' : '') + ': вручную ' + (t.before === null || t.before === undefined ? '—' : t.before) +
+      ' мин, с ассистентом ' + (t.after === null || t.after === undefined ? '—' : t.after) + ' мин, правок ' + (typeof t.edits === 'number' ? t.edits : '—'));
+  });
+  lines.push('');
+  lines.push('Экономия времени: ' + fmt(m.saving, '%'));
+  lines.push('Правки на задачу: ' + fmt(m.edits));
+  lines.push('Надёжность ассистента: ' + fmt(m.reliability, '%') + (typeof f.passed === 'number' ? ' (' + f.passed + ' из 5 тестов)' : ''));
+  lines.push('Входной тест: ' + (m.entry === null ? '—' : m.entry + ' из ' + TEST.length) + ', итоговый: ' + (m.exit === null ? '—' : m.exit + ' из ' + TEST.length));
+  return lines.join('\n');
+}
+
+function copyText(text){
+  function fallback(){
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch(e){}
+    ta.remove();
+    showToast(ok ? 'Отчёт скопирован' : 'Не удалось скопировать: выделите текст вручную');
+  }
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(text).then(function(){ showToast('Отчёт скопирован'); }, fallback);
+  } else { fallback(); }
+}
+
+/* ---------- 14. Правовая страница ---------- */
+function renderLegal(){
+  var date = '12 ноября 2026 года';
+  var bot = '<a href="' + botLink('') + '" target="_blank" rel="noopener">@' + BOT_USERNAME + '</a>';
+  var support = '<a href="https://t.me/' + SUPPORT_USERNAME + '" target="_blank" rel="noopener">@' + SUPPORT_USERNAME + '</a>';
+  return '<section class="page-head reveal">' +
+      '<h1 class="page-title">Правовые документы</h1>' +
+      '<p class="page-lead">Условия участия, политика обработки персональных данных и другие документы курса «Нейронавык». Редакция от ' + date + '.</p>' +
+      '<nav class="legal-toc" aria-label="Разделы документов">' +
+        '<a href="#/legal#offer">Условия участия</a><a href="#/legal#privacy">Персональные данные</a>' +
+        '<a href="#/legal#cookie">Cookie и хранилище</a><a href="#/legal#refund">Возврат</a>' +
+        '<a href="#/legal#requisites">Реквизиты</a><a href="#/legal#children">Возраст</a>' +
+        '<a href="#/legal#unsubscribe">Отписка</a><a href="#/legal#licenses">Лицензии</a>' +
+        '<a href="#/legal#delete">Удаление данных</a>' +
+      '</nav>' +
+    '</section>' +
+
+    '<section class="legal-section reveal" id="offer">' +
+      '<div class="legal-card">' +
+        '<h2>Условия участия в курсе (публичная оферта)</h2>' +
+        '<p>Проектная команда «Зеро» (учебный проект студентов РЭУ им. Г. В. Плеханова) предлагает любому желающему старше 16 лет пройти бесплатный образовательный курс «Нейронавык» на условиях ниже. Начиная просмотр первого урока, вы соглашаетесь с этими условиями.</p>' +
+        '<h3>Что входит в курс</h3>' +
+        '<ul>' +
+          '<li>5 видеоуроков продолжительностью около 20 минут каждый.</li>' +
+          '<li>Домашние задания, входной и итоговый тест, курсовая работа.</li>' +
+          '<li>Приём и проверка заданий через Telegram-бота ' + bot + '.</li>' +
+        '</ul>' +
+        '<h3>Основные условия</h3>' +
+        '<ul>' +
+          '<li>Курс бесплатный. Плата не взимается ни на одном этапе.</li>' +
+          '<li>Уроки открываются последовательно: следующий доступен после прохождения предыдущего.</li>' +
+          '<li>Для отправки заданий боту нужно отдельное согласие на обработку персональных данных, бот запрашивает его перед первым заданием.</li>' +
+          '<li>Команда может менять программу, материалы и эти условия. Актуальная редакция всегда опубликована на этой странице с датой.</li>' +
+        '</ul>' +
+        '<h3>Ответы нейросетей и результаты</h3>' +
+        '<ul>' +
+          '<li>Ответы нейросетей, в том числе автоматическая обратная связь бота, носят справочный характер и могут содержать ошибки. Проверяйте факты, цифры и выводы самостоятельно, решения принимаете вы.</li>' +
+          '<li>Курс учит приёмам работы и не гарантирует конкретных результатов, например роста продаж или дохода.</li>' +
+          '<li>Команда не отвечает за работу сторонних сервисов (Telegram, ИИ-ассистентов) и за последствия решений, принятых на основе ответов нейросетей.</li>' +
+        '</ul>' +
+        '<h3>Материалы курса</h3>' +
+        '<ul>' +
+          '<li>Видео и тексты курса предназначены для личного некоммерческого использования. Публикация и распространение без согласия команды не допускаются, цитирование возможно со ссылкой на курс.</li>' +
+          '<li>Названия ИИ-сервисов упоминаются в учебных целях и принадлежат их правообладателям. Курс не связан с этими компаниями.</li>' +
+        '</ul>' +
+        '<p>Условия регулируются законодательством Российской Федерации и действуют с ' + date + ' до их отмены командой.</p>' +
+      '</div>' +
+    '</section>' +
+
+    '<section class="legal-section reveal" id="privacy">' +
+      '<div class="legal-card">' +
+        '<h2>Политика обработки персональных данных</h2>' +
+        '<p>Документ составлен в соответствии с Федеральным законом № 152-ФЗ «О персональных данных».</p>' +
+        '<h3>1. Оператор</h3>' +
+        '<p>Проектная команда «Зеро», учебный проект студентов РЭУ им. Г. В. Плеханова. Связь по вопросам данных: ' + support + ', сообщение с пометкой «Запрос по персональным данным».</p>' +
+        '<h3>2. Что хранит сайт</h3>' +
+        '<p>Сайт не собирает персональные данные. Прогресс уроков, ответы на опросы, результаты тестов и цифры калькулятора курсовой хранятся только в вашем браузере (localStorage) и не передаются команде. Их можно удалить в разделе «Удаление данных».</p>' +
+        '<p>На сайте нет счётчиков, рекламы и сторонних шрифтов. Хостинг-провайдер может автоматически вести технические журналы (IP-адрес, время запроса, тип браузера) для работы и защиты сайта по своим правилам.</p>' +
+        '<h3>3. Что обрабатывает Telegram-бот ' + bot + '</h3>' +
+        '<ul>' +
+          '<li><strong>Данные:</strong> идентификатор и имя пользователя в Telegram, имя из профиля, номер урока, тексты и файлы заданий, статусы и итоги проверки.</li>' +
+          '<li><strong>Цели:</strong> приём и проверка заданий, обратная связь, учёт прохождения курса, обезличенная статистика для улучшения курса.</li>' +
+          '<li><strong>Основание:</strong> ваше согласие, которое вы даёте в боте перед отправкой первого задания.</li>' +
+          '<li><strong>Автоматическая проверка:</strong> тексты заданий могут передаваться ИИ-сервису для проверки. Такой сервис может находиться за пределами России, поэтому не указывайте в заданиях ФИО, телефоны, адреса, данные клиентов и другие персональные данные.</li>' +
+          '<li><strong>Срок хранения:</strong> до подведения итогов курса, но не дольше 6 месяцев после вашего последнего сообщения боту. Затем данные удаляются или обезличиваются.</li>' +
+          '<li><strong>Доступ:</strong> только участники команды, которые проверяют задания. Данные не продаются и не передаются третьим лицам, кроме Telegram как платформы обмена сообщениями и ИИ-сервиса проверки.</li>' +
+        '</ul>' +
+        '<h3>4. Ваши права</h3>' +
+        '<ul>' +
+          '<li>Узнать, какие ваши данные обрабатываются, и получить их копию.</li>' +
+          '<li>Потребовать уточнения или удаления данных.</li>' +
+          '<li>Отозвать согласие в любой момент: напишите боту или в поддержку «Отзываю согласие». Мы прекратим обработку и удалим данные.</li>' +
+          '<li>Мы отвечаем на запросы в течение 10 рабочих дней. Вы также можете обратиться в Роскомнадзор.</li>' +
+        '</ul>' +
+        '<h3>5. Изменения</h3>' +
+        '<p>Новая редакция политики публикуется на этой странице с датой. Действующая редакция от ' + date + '.</p>' +
+      '</div>' +
+    '</section>' +
+
+    '<section class="legal-section reveal" id="cookie">' +
+      '<div class="legal-card">' +
+        '<h2>Cookie и локальное хранилище</h2>' +
+        '<p>Сайт не использует cookie. Для работы курса применяется только локальное хранилище браузера (localStorage):</p>' +
+        '<ul>' +
+          '<li>прогресс уроков и ответы на опросы;</li>' +
+          '<li>результаты входного и итогового теста;</li>' +
+          '<li>цифры, которые вы ввели в калькулятор курсовой работы;</li>' +
+          '<li>отметка о том, что вы прочитали уведомление о хранении данных.</li>' +
+        '</ul>' +
+        '<p>Эти данные нужны только для работы функций сайта, не используются для рекламы и аналитики и не покидают ваше устройство. Видеоуроки загружаются с этого же сайта. Если урок будет размещён на внешней видеоплатформе, её плеер загрузится только на странице этого урока, и платформа может обрабатывать данные по своим правилам.</p>' +
+      '</div>' +
+    '</section>' +
+
+    '<section class="legal-section reveal" id="refund">' +
+      '<div class="legal-card">' +
+        '<h2>Условия возврата</h2>' +
+        '<p>Курс полностью бесплатный: платежей нет, в том числе скрытых, поэтому возврат денежных средств не предусмотрен.</p>' +
+        '<p>Если вы нашли ошибку в материалах, напишите в поддержку ' + support + '.</p>' +
+      '</div>' +
+    '</section>' +
+
+    '<section class="legal-section reveal" id="requisites">' +
+      '<div class="legal-card">' +
+        '<h2>Реквизиты и контакты</h2>' +
+        '<ul>' +
+          '<li><strong>Проект:</strong> «Нейронавык», учебный проект команды «Зеро».</li>' +
+          '<li><strong>Где выполняется:</strong> проект выполняют студенты РЭУ им. Г. В. Плеханова (г. Москва, Стремянный пер., д. 36) в рамках учебной программы.</li>' +
+          '<li><strong>Статус:</strong> проект не является юридическим лицом, поэтому ИНН и ОГРН отсутствуют.</li>' +
+          '<li><strong>Поддержка:</strong> ' + support + '.</li>' +
+          '<li><strong>Сдача заданий:</strong> ' + bot + '.</li>' +
+        '</ul>' +
+      '</div>' +
+    '</section>' +
+
+    '<section class="legal-section reveal" id="children">' +
+      '<div class="legal-card">' +
+        '<h2>Возраст участников</h2>' +
+        '<p>Курс рассчитан на участников от 16 лет. Если вам ещё нет 18 лет, отправлять задания боту можно только с согласия родителя или законного представителя.</p>' +
+        '<p>Опросы, тесты и задания не требуют персональных данных. Не указывайте ФИО, телефоны, адреса и данные других людей в отзывах и заданиях.</p>' +
+      '</div>' +
+    '</section>' +
+
+    '<section class="legal-section reveal" id="unsubscribe">' +
+      '<div class="legal-card">' +
+        '<h2>Отписка от сообщений</h2>' +
+        '<p>Сайт не ведёт рассылок и не собирает адреса электронной почты. Сообщения приходят только от бота ' + bot + ' и только если вы сами начали с ним диалог.</p>' +
+        '<p>Чтобы прекратить сообщения, остановите бота в Telegram. Чтобы удалить связанные с вами данные, напишите в поддержку «Удалить мои данные».</p>' +
+      '</div>' +
+    '</section>' +
+
+    '<section class="legal-section reveal" id="licenses">' +
+      '<div class="legal-card">' +
+        '<h2>Лицензии и авторские права</h2>' +
+        '<ul>' +
+          '<li><strong>Шрифты:</strong> используются системные шрифты вашего устройства, сторонние шрифты не загружаются.</li>' +
+          '<li><strong>Иконки:</strong> собственные встроенные SVG проекта.</li>' +
+          '<li><strong>Видеоуроки и иллюстрации:</strong> созданы командой проекта.</li>' +
+          '<li><strong>Фотографии:</strong> не используются.</li>' +
+        '</ul>' +
+        '<p class="small">Если вы считаете, что материал нарушает ваши права, напишите в поддержку, и мы оперативно разберёмся.</p>' +
+      '</div>' +
+    '</section>' +
+
+    '<section class="legal-section reveal" id="delete">' +
+      '<div class="legal-card delete-zone">' +
+        '<h2>Удаление данных</h2>' +
+        '<p>Кнопка ниже удаляет всё, что сайт хранит в вашем браузере: прогресс уроков, ответы на опросы, результаты тестов и цифры курсовой. Действие необратимо, курс начнётся заново.</p>' +
+        '<p class="small">Задания, отправленные боту, хранятся у бота. Чтобы удалить и их, напишите в поддержку ' + support + ': «Удалить мои данные».</p>' +
+        '<div class="delete-aside">' +
+          '<button type="button" class="btn btn-danger" data-action="delete-data" id="delete-data-btn">Удалить мои данные</button>' +
+          '<span class="hint" id="delete-status" aria-live="polite"></span>' +
+        '</div>' +
+      '</div>' +
+    '</section>';
+}
+
+/* ---------- 15. Роутинг ---------- */
+function parseHash(){
+  // #/legal#privacy: вторая решётка это якорь раздела, а не часть маршрута
+  var raw = location.hash.replace(/^#\/?/, '').split('#')[0].replace(/\/+$/, '');
+  if(!raw) return { name:'home' };
+  var parts = raw.split('/');
+  if(parts[0] === 'lecture'){
+    var id = Number(parts[1]);
+    if(Number.isInteger(id) && id >= 1 && id <= LECTURES.length) return { name:'lecture', id:id };
+  }
+  if(parts[0] === 'about' || parts[0] === 'legal' || parts[0] === 'test' || parts[0] === 'final') return { name:parts[0] };
+  return { name:'home' };
+}
+
+function updateNav(route){
+  document.querySelectorAll('[data-nav]').forEach(function(link){
+    var active = link.dataset.nav === route.name;
+    link.classList.toggle('is-active', active);
+  });
+}
+
+var TITLES = {
+  home:'Нейронавык: бесплатный курс «ИИ в продажах»',
+  about:'О курсе · Нейронавык',
+  legal:'Правовые документы · Нейронавык',
+  test:'Входной и итоговый тест · Нейронавык',
+  final:'Курсовая работа · Нейронавык'
+};
+var firstRender = true;
+function router(){
+  var route = parseHash();
+  updateNav(route);
+
+  if(route.name === 'lecture'){
+    var lecture = LECTURES.find(function(l){ return l.id === route.id; });
+    if(!isLessonUnlocked(route.id)){
+      appEl.innerHTML = renderLocked(route);
+      document.title = 'Урок ' + route.id + ' закрыт · Нейронавык';
+    } else {
+      appEl.innerHTML = renderLecture(route);
+      document.title = lecture.title + ' · Нейронавык';
+      // Авто-отметка «просмотрена» по окончании видео; если файла нет, показываем заглушку
+      appEl.querySelectorAll('video').forEach(function(v){
+        v.addEventListener('ended', function(){ markWatched(route.id); });
+        var src = v.querySelector('source');
+        if(src){
+          src.addEventListener('error', function(){
+            if(v.dataset.fallback) return;
+            v.dataset.fallback = '1';
+            var box = v.closest('.video-frame') || v;
+            var show = function(exists){
+              if(!box.isConnected) return;
+              box.outerHTML = exists
+                ? placeholderHtml('Не удалось воспроизвести видео', 'Обновите страницу или откройте сайт в другом браузере (Chrome, Safari, Яндекс Браузер).', true)
+                : placeholderHtml('Видео скоро появится', 'Урок появится здесь после публикации.', true);
+            };
+            // Файл есть, но браузер не смог его воспроизвести, или файла ещё нет
+            if(window.fetch && location.protocol !== 'file:'){
+              fetch(src.getAttribute('src'), { method:'HEAD' }).then(function(r){ show(r.ok); }, function(){ show(false); });
+            } else { show(false); }
+          });
+        }
+      });
+    }
+  } else if(route.name === 'about'){
+    appEl.innerHTML = renderAbout();
+  } else if(route.name === 'legal'){
+    appEl.innerHTML = renderLegal();
+  } else if(route.name === 'test'){
+    appEl.innerHTML = renderTest();
+  } else if(route.name === 'final'){
+    appEl.innerHTML = renderFinal();
+  } else {
+    appEl.innerHTML = renderHome();
+  }
+  if(TITLES[route.name]) document.title = TITLES[route.name];
+
+  setupReveal();
+  // Якорь раздела (#/legal#privacy) прокручиваем после сброса прокрутки, иначе он теряется
+  var subAnchor = location.hash.split('#')[2];
+  var targetEl = subAnchor ? document.getElementById(subAnchor) : null;
+  if(targetEl){
+    targetEl.classList.add('in-view');
+    targetEl.scrollIntoView({ block:'start' });
+  } else {
+    window.scrollTo(0, 0);
+  }
+  // Доступность: после перехода фокус на заголовок новой страницы (кроме первой загрузки)
+  if(!firstRender){
+    var h1 = appEl.querySelector('h1');
+    if(h1){ h1.setAttribute('tabindex', '-1'); h1.focus({ preventScroll:true }); }
+  }
+  firstRender = false;
+}
+
+/* ---------- 16. Reveal ---------- */
+function setupReveal(){
+  var els = appEl.querySelectorAll('.reveal:not(.in-view)');
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(function(el){ el.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.12 });
+  els.forEach(function(el){ io.observe(el); });
+}
+
+/* ---------- 17. Обновление UI лекции ---------- */
+function updateLectureUI(route){
+  var lecture = LECTURES.find(function(l){ return l.id === route.id; });
+  if(!lecture) return;
+  var p = getProgress(lecture.id), s = statusFor(lecture);
+  var badge = document.querySelector('.lecture-meta .badge');
+  if(badge){
+    badge.className = 'badge ' + s.cls;
+    badge.innerHTML = (s.done ? ICONS.check + ' ' : '') + s.text;
+  }
+  var watchedBtn = document.querySelector('[data-action="mark-watched"]');
+  if(watchedBtn){
+    watchedBtn.textContent = p.watched ? 'Отметить как непросмотренную' : 'Отметить как просмотренную';
+    watchedBtn.setAttribute('aria-pressed', String(!!p.watched));
+  }
+  var hwBtn = document.querySelector('[data-action="mark-homework"]');
+  if(hwBtn){
+    hwBtn.textContent = p.homeworkDone ? 'Отметить как не сданное' : 'Отметить ДЗ как сданное';
+    hwBtn.setAttribute('aria-pressed', String(!!p.homeworkDone));
+  }
+  var nav = document.querySelector('.lecture-nav');
+  if(nav) nav.innerHTML = buildLectureNav(route);
+}
+
+/* ---------- 18. Вкладки ---------- */
+function activateTab(tabName){
+  var tabs = document.querySelectorAll('.tab');
+  var panels = document.querySelectorAll('.tab-panel');
+  tabs.forEach(function(tab){
+    var active = tab.dataset.tab === tabName;
+    tab.classList.toggle('is-active', active);
+    tab.setAttribute('aria-selected', String(active));
+  });
+  panels.forEach(function(panel){
+    panel.hidden = panel.id !== 'panel-' + tabName;
+  });
+}
+
+/* ---------- 19. Опрос ---------- */
+function setSurveyError(field, message){
+  var el = document.querySelector('[data-error="' + field + '"]');
+  if(el) el.textContent = message || '';
+}
+
+function submitSurvey(id){
+  var section = document.querySelector('[data-survey="' + id + '"]');
+  if(!section) return;
+  var rating = section.querySelectorAll('.star.is-active').length;
+  var difficultyEl = section.querySelector('.seg.is-active');
+  var difficulty = difficultyEl ? difficultyEl.dataset.seg : '';
+  var consentEl = section.querySelector('[data-survey-input="consent"]');
+  var consent = consentEl ? consentEl.checked : false;
+
+  setSurveyError('rating', rating ? '' : 'Пожалуйста, оцените полезность урока звёздами.');
+  setSurveyError('difficulty', difficulty ? '' : 'Пожалуйста, отметьте сложность материала.');
+  setSurveyError('consent', consent ? '' : 'Пожалуйста, отметьте, что ознакомились с условием.');
+
+  if(!rating || !difficulty || !consent) return;
+
+  var hardChips = section.querySelectorAll('.chip.is-selected');
+  var hard = Array.from(hardChips).map(function(c){ return c.dataset.chip; });
+  var liked = section.querySelector('[data-survey-input="liked"]').value.trim();
+  var unclear = section.querySelector('[data-survey-input="unclear"]').value.trim();
+
+  saveSurvey(id, {
+    rating: rating,
+    difficulty: difficulty,
+    hard: hard,
+    liked: liked,
+    unclear: unclear,
+    submittedAt: Date.now()
+  });
+
+  var wrapper = document.createElement('div');
+  wrapper.innerHTML = surveySuccessHtml(id, true);
+  if(section.parentNode) section.parentNode.replaceChild(wrapper.firstChild, section);
+  var title = document.getElementById('survey-title');
+  if(title) title.focus();
+
+  updateLectureUI(parseHash());
+}
+
+/* ---------- 20. Radio-группы: клавиатура ---------- */
+function setGroupSelection(group, activeEl){
+  var items = Array.prototype.slice.call(group.querySelectorAll('[role="radio"]'));
+  items.forEach(function(item){
+    var active = item === activeEl;
+    item.setAttribute('aria-checked', String(active));
+    item.tabIndex = active ? 0 : -1;
+  });
+}
+function moveGroupFocus(group, dir){
+  var items = Array.prototype.slice.call(group.querySelectorAll('[role="radio"]'));
+  var idx = items.indexOf(document.activeElement);
+  if(idx === -1) idx = items.findIndex(function(i){ return i.getAttribute('aria-checked') === 'true'; });
+  if(idx === -1) idx = 0;
+  var next = (idx + dir + items.length) % items.length;
+  items[next].focus();
+  setGroupSelection(group, items[next]);
+}
+
+/* ---------- 21. Cookie-баннер ---------- */
+function cookieConsent(){
+  try {
+    var v = localStorage.getItem(COOKIE_KEY);
+    return v === 'accepted' || v === 'declined' || v === 'seen';
+  } catch(e){ return true; }
+}
+function hideCookieBanner(){
+  var b = document.getElementById('cookie-banner');
+  if(b) b.remove();
+}
+function showCookieBanner(){
+  if(cookieConsent()) return;
+  if(document.getElementById('cookie-banner')) return;
+  var banner = document.createElement('div');
+  banner.className = 'cookie-banner';
+  banner.id = 'cookie-banner';
+  banner.setAttribute('role', 'region');
+  banner.setAttribute('aria-label', 'Уведомление о хранении данных');
+  banner.innerHTML = '<p>Сайт не использует cookie, счётчики и рекламу. Прогресс курса и ответы хранятся только в вашем браузере. ' +
+    'Подробнее в разделе <a href="#/legal#cookie">«Cookie и хранилище»</a>.</p>' +
+    '<div class="cookie-actions">' +
+      '<button type="button" class="btn btn-primary" data-cookie="accept">Понятно</button>' +
+    '</div>';
+  document.body.appendChild(banner);
+}
+function setCookieConsent(value){
+  try { localStorage.setItem(COOKIE_KEY, value); } catch(e){}
+  hideCookieBanner();
+}
+
+/* ---------- 22. Тост ---------- */
+function showToast(text){
+  var old = document.querySelector('.toast');
+  if(old) old.remove();
+  var t = document.createElement('div');
+  t.className = 'toast';
+  t.setAttribute('role', 'status');
+  t.textContent = text;
+  document.body.appendChild(t);
+  requestAnimationFrame(function(){ t.classList.add('show'); });
+  setTimeout(function(){
+    t.classList.remove('show');
+    setTimeout(function(){ t.remove(); }, 300);
+  }, 3500);
+}
+
+/* ---------- 23. События ---------- */
+document.addEventListener('click', function(e){
+  if(!(e.target instanceof Element)) return;
+
+  // Ссылка «Перейти к содержимому» не должна менять маршрут
+  if(e.target.closest('[data-action="skip"]')){
+    e.preventDefault();
+    var mainEl = document.getElementById('main');
+    if(mainEl){ mainEl.focus(); mainEl.scrollIntoView(); }
+    return;
+  }
+
+  var copyBtn = e.target.closest('[data-action="copy-report"]');
+  if(copyBtn){
+    e.preventDefault();
+    copyText(reportText());
+    return;
+  }
+
+  var cookieBtn = e.target.closest('[data-cookie]');
+  if(cookieBtn){
+    e.preventDefault();
+    setCookieConsent('seen');
+    return;
+  }
+
+  // Удаление данных (пункт 20): двухшаговое подтверждение
+  var delBtn = e.target.closest('[data-action="delete-data"]');
+  if(delBtn){
+    e.preventDefault();
+    if(delBtn.dataset.confirm === 'yes'){
+      deleteAllData();
+      delBtn.dataset.confirm = '';
+      delBtn.textContent = 'Удалить мои данные';
+      var st = document.getElementById('delete-status');
+      if(st) st.textContent = 'Данные удалены. Курс начнётся заново.';
+      showToast('Все ваши данные удалены');
+      router();
+    } else {
+      delBtn.dataset.confirm = 'yes';
+      delBtn.textContent = 'Точно удалить? Нажмите ещё раз';
+      setTimeout(function(){
+        if(delBtn.dataset.confirm === 'yes'){
+          delBtn.dataset.confirm = '';
+          delBtn.textContent = 'Удалить мои данные';
+        }
+      }, 4000);
+    }
+    return;
+  }
+
+  var watchedBtn = e.target.closest('[data-action="mark-watched"]');
+  if(watchedBtn){
+    e.preventDefault();
+    var id = parseInt(watchedBtn.dataset.id, 10);
+    toggleWatched(id);
+    updateLectureUI(parseHash());
+    var survey = document.querySelector('[data-survey="' + id + '"]');
+    if(survey && !getProgress(id).survey){
+      survey.scrollIntoView({ behavior:'smooth', block:'center' });
+      survey.classList.remove('attention');
+      void survey.offsetWidth;
+      survey.classList.add('attention');
+    }
+    return;
+  }
+
+  var hwBtn = e.target.closest('[data-action="mark-homework"]');
+  if(hwBtn){
+    e.preventDefault();
+    toggleHomeworkDone(parseInt(hwBtn.dataset.id, 10));
+    updateLectureUI(parseHash());
+    return;
+  }
+
+  var tabBtn = e.target.closest('[data-tab]');
+  if(tabBtn){
+    e.preventDefault();
+    activateTab(tabBtn.dataset.tab);
+    return;
+  }
+
+  var star = e.target.closest('.star');
+  if(star){
+    e.preventDefault();
+    var group = star.closest('.stars');
+    var value = parseInt(star.dataset.star, 10);
+    group.querySelectorAll('.star').forEach(function(s){
+      var active = parseInt(s.dataset.star, 10) <= value;
+      s.classList.toggle('is-active', active);
+      s.setAttribute('aria-checked', String(active));
+    });
+    setGroupSelection(group, star);
+    setSurveyError('rating', '');
+    return;
+  }
+
+  var seg = e.target.closest('.seg');
+  if(seg){
+    e.preventDefault();
+    var group2 = seg.closest('.seg-group');
+    group2.querySelectorAll('.seg').forEach(function(s){
+      var active = s === seg;
+      s.classList.toggle('is-active', active);
+      s.setAttribute('aria-checked', String(active));
+    });
+    setGroupSelection(group2, seg);
+    setSurveyError('difficulty', '');
+    return;
+  }
+
+  var chip = e.target.closest('.chip');
+  if(chip){
+    e.preventDefault();
+    chip.classList.toggle('is-selected');
+    return;
+  }
+
+  var surveyBtn = e.target.closest('[data-action="submit-survey"]');
+  if(surveyBtn){
+    e.preventDefault();
+    submitSurvey(parseInt(surveyBtn.dataset.id, 10));
+  }
+});
+
+document.addEventListener('keydown', function(e){
+  if(!(e.target instanceof Element)) return;
+  if(e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+  var group = e.target.closest('[role="radiogroup"]');
+  if(!group) return;
+  e.preventDefault();
+  moveGroupFocus(group, e.key === 'ArrowRight' ? 1 : -1);
+});
+
+document.addEventListener('submit', function(e){
+  var form = e.target;
+  if(form && form.classList && form.classList.contains('test-form')){
+    e.preventDefault();
+    submitTest(form);
+  } else if(form && form.id === 'final-calc'){
+    e.preventDefault();
+  }
+});
+
+document.addEventListener('input', function(e){
+  if(!(e.target instanceof Element)) return;
+  if(e.target.closest('#final-calc')){
+    writeJSON(FINAL_KEY, readCalcForm());
+    var out = document.getElementById('calc-out');
+    if(out) out.innerHTML = calcOutput();
+  }
+  var card = e.target.closest('.q-card');
+  if(card) card.classList.remove('is-missing');
+});
+document.addEventListener('change', function(e){
+  if(e.target instanceof Element && e.target.closest('#final-calc')){
+    writeJSON(FINAL_KEY, readCalcForm());
+    var out = document.getElementById('calc-out');
+    if(out) out.innerHTML = calcOutput();
+  }
+});
+
+window.addEventListener('hashchange', router);
+
+/* ---------- 24. Запуск ---------- */
+router();
+showCookieBanner();
+})();
+</script>
+</body>
+</html>
