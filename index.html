@@ -392,6 +392,66 @@ a:hover{color:var(--accent-blue-light)}
 @media (min-width:920px){
   .metric-grid{grid-template-columns:repeat(3,1fr)}
 }
+
+/* v8: материалы к уроку (приподнятая плашка) */
+.mat-card{position:relative;margin:36px 0 28px;padding:26px 26px 24px;border-radius:20px;border:1px solid rgba(139,92,246,.45);
+  background:linear-gradient(180deg,rgba(139,92,246,.10),rgba(47,107,255,.05) 38%,var(--surface-1) 100%);
+  box-shadow:0 0 0 1px rgba(47,107,255,.18),0 24px 60px rgba(8,10,20,.65),0 10px 40px rgba(139,92,246,.18);transform:translateY(-4px)}
+.mat-card::before{content:"";position:absolute;left:24px;right:24px;top:-1px;height:2px;border-radius:2px;background:var(--grad-primary)}
+.mat-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.mat-ico{display:grid;place-items:center;width:44px;height:44px;flex-shrink:0;border-radius:12px;background:var(--grad-primary);color:#fff;box-shadow:var(--glow)}
+.mat-ico svg{width:22px;height:22px}
+.mat-kicker{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-cyan-light)}
+.mat-head h2{font-family:var(--font-display);font-size:22px;line-height:1.25;margin-top:2px}
+.mat-tabs{display:flex;gap:6px;padding:5px;background:var(--bg);border:1px solid var(--border);border-radius:14px;margin-bottom:20px;overflow-x:auto}
+.mat-tab{appearance:none;flex:1 1 0;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:10px 14px;border:none;border-radius:10px;background:transparent;font-family:var(--font-text);font-size:15px;font-weight:600;color:var(--text-secondary);cursor:pointer;white-space:nowrap;transition:background .18s ease,color .18s ease}
+.mat-tab:hover{color:var(--text-primary)}
+.mat-tab:focus-visible,.mat-copy:focus-visible,.mat-pre:focus-visible{outline:2px solid var(--accent-cyan);outline-offset:2px}
+.mat-tab.is-active{background:var(--grad-primary);color:#fff;box-shadow:0 6px 20px rgba(47,107,255,.35)}
+.mat-badge{display:inline-block;min-width:22px;padding:1px 7px;border-radius:999px;background:rgba(255,255,255,.14);font-size:12px;font-weight:700;line-height:1.5}
+.mat-tab:not(.is-active) .mat-badge{background:var(--surface-2);color:var(--text-secondary)}
+.mat-panel[hidden]{display:none}
+.mat-idea{padding:14px 16px;margin-bottom:16px;background:rgba(34,211,238,.07);border:1px solid rgba(34,211,238,.28);border-left:3px solid var(--accent-cyan);border-radius:var(--radius-md);color:var(--text-primary);font-size:15.5px}
+.mat-notes{list-style:none;counter-reset:mn;display:grid;gap:10px}
+.mat-notes li{counter-increment:mn;position:relative;display:grid;gap:3px;padding:14px 16px 14px 58px;background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md)}
+.mat-notes li::before{content:counter(mn);position:absolute;left:16px;top:14px;display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:rgba(139,92,246,.18);border:1px solid rgba(139,92,246,.5);color:var(--accent-violet-light);font-weight:700;font-size:14px}
+.mat-note-title{font-weight:700;font-size:15.5px;color:var(--text-primary)}
+.mat-note-text{color:var(--text-secondary);font-size:15px}
+.mat-prompts{display:grid;gap:14px}
+.mat-prompt{padding:16px;background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md);min-width:0}
+.mat-prompt header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.mat-prompt h3{font-family:var(--font-display);font-size:17px}
+.mat-copy{padding:8px 14px;font-size:14px}
+.mat-when{margin:6px 0 12px;color:var(--text-secondary);font-size:14.5px}
+.mat-pre{margin:0;padding:14px 16px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);color:var(--text-primary);font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13.5px;line-height:1.65;white-space:pre-wrap;overflow-wrap:anywhere;max-height:340px;overflow:auto}
+.mat-var{color:var(--accent-amber-light);background:rgba(245,158,11,.12);border-radius:4px;padding:0 3px}
+.mat-foot{margin-top:14px;color:var(--text-muted);font-size:13.5px}
+.mat-progress{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:14px}
+.mat-bar{flex:1 1 160px;height:8px;border-radius:999px;background:var(--surface-2);overflow:hidden}
+.mat-bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--accent-cyan),var(--accent-violet));transition:width .3s ease}
+.mat-count{font-size:14px;font-weight:600;color:var(--text-secondary)}
+.mat-reset{padding:7px 12px;font-size:13.5px}
+.mat-group{border:none;display:grid;gap:8px;margin-bottom:16px;min-width:0}
+.mat-group legend{font-weight:700;font-size:15px;margin-bottom:8px;color:var(--accent-violet-light);padding:0}
+.mat-check{display:flex;align-items:flex-start;gap:12px;padding:11px 14px;background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-md);cursor:pointer;color:var(--text-secondary);font-size:15px;transition:border-color .18s ease,background .18s ease}
+.mat-check:hover{border-color:var(--accent-violet)}
+.mat-check input{position:absolute;opacity:0;width:1px;height:1px}
+.mat-box{flex-shrink:0;display:grid;place-items:center;width:22px;height:22px;margin-top:1px;border:2px solid var(--border-soft);border-radius:6px;transition:background .18s ease,border-color .18s ease}
+.mat-check input:focus-visible + .mat-box{outline:2px solid var(--accent-cyan);outline-offset:2px}
+.mat-check input:checked + .mat-box{background:var(--accent-green);border-color:var(--accent-green)}
+.mat-check input:checked + .mat-box::after{content:"";width:6px;height:11px;margin-top:-2px;border:solid #06241a;border-width:0 2.5px 2.5px 0;transform:rotate(45deg)}
+.mat-check.is-on{background:rgba(52,211,153,.07);border-color:rgba(52,211,153,.4);color:var(--text-primary)}
+.hw-card{margin:0 0 28px;padding:22px 24px;background:var(--surface-1);border:1px solid var(--border);border-radius:var(--radius-lg)}
+.hw-title{font-family:var(--font-display);font-size:20px;margin-bottom:10px}
+@media (max-width:719px){
+  .mat-card{padding:20px 14px 18px;border-radius:16px}
+  .mat-head h2{font-size:18px}
+  .mat-tab{padding:9px 8px;font-size:14px;gap:5px}
+  .mat-notes li{padding:12px 12px 12px 50px}
+  .mat-notes li::before{left:12px;top:12px}
+  .mat-pre{font-size:12.5px}
+}
+@media (prefers-reduced-motion:reduce){.mat-card{transform:none}.mat-bar span{transition:none}}
 </style>
 </head>
 <body>
@@ -543,6 +603,318 @@ function testLevel(score){
   return 'начальный уровень';
 }
 
+/* ---------- 10а. Материалы к урокам: конспект, запросы, чек-лист ----------
+   Содержание взято из сценариев видеоуроков. Ничего сверх урока не добавлено.
+   В шаблонах запросов [в квадратных скобках] то, что человек подставляет сам. */
+var MATERIALS = {
+  1: {
+    idea: 'Нейросеть не думает, а предсказывает текст, поэтому её ответ нужно проверять, особенно цифры, даты, имена и ссылки.',
+    notes: [
+      ['Как работает модель', 'Она предсказывает следующий фрагмент текста по закономерностям, выученным на огромном количестве текстов. Интернета внутри себя она не хранит.'],
+      ['Токен', 'Кусочек текста, которому присвоен номер в словаре модели. Длину запроса и ответа модели считают в токенах.'],
+      ['Температура', 'Низкая даёт точные и предсказуемые ответы: берите её для фактов и расчётов. Высокая даёт разнообразие: подходит для идей и текстов.'],
+      ['Галлюцинации', 'Модель заполняет пробел самым правдоподобным вариантом и подаёт его тем же уверенным тоном. Чаще всего ошибки в цифрах, датах, именах и ссылках.'],
+      ['Как снизить выдумки', 'Давайте факты сами, просите отвечать только по документу и показывать цитату, разрешайте модели сказать «не знаю».'],
+      ['Что умеют ассистенты', 'Голос, фото, документы, поиск в интернете и агенты, которые выполняют шаги за вас. Но проверка остаётся за человеком.'],
+      ['Короткая формула запроса', 'Кто, что, зачем, как, чего нельзя. Во втором уроке она вырастает в формулу из пяти частей.']
+    ],
+    prompts: [
+      { title: 'Запрос по короткой формуле', when: 'Для любой задачи, когда нужно получить конкретный ответ, а не общие слова.',
+        text: 'Ты [кто: роль, например редактор или менеджер по продажам].\nЗадача: [что нужно сделать].\nЗачем: [для чего нужен результат и кто его прочитает].\nКак: [формат, объём, тон].\nЧего нельзя: не выдумывай цифры, даты и имена. Если данных не хватает, так и скажи.' },
+      { title: 'Репетиция разговора голосом', when: 'Для домашнего задания: включите голосовой режим и отрепетируйте один разговор, который ждёт вас на этой неделе.',
+        text: 'Ты [роль собеседника, например руководитель или клиент].\nЯ хочу отрепетировать разговор: [ситуация и моя цель].\nЗадавай вопросы по одному и жди моего ответа.\nНе подыгрывай мне слишком легко.' }
+    ],
+    checks: [
+      { group: 'Перед отправкой запроса', items: [
+        'Указал, кто отвечает, что нужно сделать, зачем, в каком виде и чего нельзя',
+        'Дал нужные факты сам, а не надеюсь, что модель их знает',
+        'Разрешил модели сказать «не знаю», если данных не хватает'
+      ]},
+      { group: 'После ответа', items: [
+        'Цифры, даты, имена и ссылки сверил с первоисточником',
+        'Для фактов и расчётов выбрал низкую температуру, а не творческий режим'
+      ]}
+    ]
+  },
+  2: {
+    idea: 'Запрос это не заклинание, а техническое задание для старательного исполнителя, который совсем не знает вашей ситуации.',
+    notes: [
+      ['Формула из пяти частей', 'Роль, задача, контекст и цель, формат, ограничения. Это развёрнутое «кто, что, зачем, как, чего нельзя».'],
+      ['Контекст', 'Четыре вопроса: кто читатель, что было раньше, какой результат нужен, какие есть условия. Лучший контекст это сам материал, а не пересказ.'],
+      ['Образцы', 'Если тон трудно описать, покажите текст, который нравится, или абзац с пометкой «так не надо». Два-три образца работают лучше длинного объяснения.'],
+      ['Формат и ограничения', 'Задайте форму ответа, длину и тон. Запретите придумывать цифры, даты и обещания, и добавьте замену: не просто «без штампов», а «вместо штампов давай факты».'],
+      ['Диалог вместо одной попытки', 'Первый ответ это черновик. Правьте одной фразой («короче», «теплее»), точечно, просите критику, на новую тему открывайте новый чат.'],
+      ['Проверка', 'Всегда проверяйте цифры и даты, имена и названия, ссылки и цитаты, логику выводов. Светофор: зелёное достаточно прочитать, жёлтое сверить, красное только со специалистом.'],
+      ['Приёмы для сложных задач', 'Рассуждение по шагам, запрос на запрос, пример входа и выхода, таблица критериев. Начинайте с формулы, остальное добавляйте по необходимости.'],
+      ['Шесть частых ошибок', 'Слишком коротко, много задач сразу, нет цели, противоречия («подробно, но кратко»), первый ответ как есть, «сделай красиво» без критериев.']
+    ],
+    prompts: [
+      { title: 'Запрос по формуле из пяти частей', when: 'Основной шаблон урока. Подходит для письма, плана, отчёта или идей.',
+        text: 'Роль: [кто ты в этой задаче].\nЗадача: [один глагол и один результат].\nКонтекст и цель: [кто читатель, что уже произошло, чего хочу добиться].\nФормат: [список или таблица, сколько слов, какой тон].\nОграничения: не выдумывай цифры и обещания. Если данных нет, так и скажи.' },
+      { title: 'Запрос на запрос', when: 'Когда не знаете, с чего начать: нейросеть сама найдёт пустые места в вашем запросе.',
+        text: 'Задача: улучши мой запрос.\nКак: сначала задай мне до пяти вопросов, потом перепиши запрос по формуле: роль, задача, контекст, формат, ограничения.\nФормат: готовый текст, который удобно скопировать.\n\nМой черновик:\n---\n[вставьте свой запрос]\n---' },
+      { title: 'Контекст за минуту', when: 'Чтобы быстро добавить контекст к любому запросу. Четыре строки, и запрос готов.',
+        text: 'Читатель и что он о нас знает: [...]\nЧто уже произошло: [...]\nЧего хочу добиться: [...]\nУсловия и запреты: [...]' },
+      { title: 'Три фразы против выдумок', when: 'Когда отвечать нужно по материалу: прайсу, письму, описанию продукта.',
+        text: 'Опирайся только на приложенный текст.\nЕсли данных нет, так и скажи.\nПокажи цитату, на которую опираешься.' }
+    ],
+    checks: [
+      { group: 'Перед отправкой запроса', items: [
+        'Есть роль и задача',
+        'Объяснил цель и читателя',
+        'Указал формат и длину',
+        'Написал, чего не делать',
+        'Убрал личные данные'
+      ]},
+      { group: 'После ответа', items: [
+        'Проверил цифры и даты',
+        'Проверил имена, названия, ссылки и цитаты',
+        'Первый ответ считаю черновиком и уточнил его хотя бы раз'
+      ]}
+    ]
+  },
+  3: {
+    idea: 'ИИ делает черновики и репетиции, а доверие, цены и решения остаются у человека. Два запрета: не выдумывать и не отправлять вслепую.',
+    notes: [
+      ['Карточка продукта', 'Пять строк: что продаёте и кому, главные выгоды, отличия, допустимые цены и условия, чего обещать нельзя. Вставляйте её в запросы, и ИИ не будет гадать.'],
+      ['Подготовка к встрече', 'ИИ даёт гипотезы о проблемах клиента и вопросы, а не факты. На встрече вы их подтверждаете или отбрасываете.'],
+      ['Первое сообщение', 'Три части: зацепка, почему именно вам, польза в одном предложении и один лёгкий вопрос. Просите три варианта с разным тоном.'],
+      ['Вопросы клиенту', 'СПИН: ситуация, проблема, последствия, выгода. Открытые вопросы раскрывают клиента лучше закрытых.'],
+      ['Тренажёр возражений', 'Схема: выслушать и признать, уточнить причину, ответить фактом или примером, проверить, снято ли возражение, предложить следующий шаг. Просите ИИ-клиента быть жёстче.'],
+      ['Предложение', 'Пишите про клиента: свойство, выгода для него, доказательство. Цены и условия вставляете вы сами.'],
+      ['После встречи', 'Из заметок получаются резюме, договорённости со сроками, поля CRM и письмо в тот же день. Просьба «ничего не добавляй от себя» защищает от домыслов.'],
+      ['Два запрета', 'Не выдумывать цифры, кейсы и обещания. Не отправлять непрочитанное и не вставлять персональные данные: имена заменяйте на «Клиент А», контакты убирайте, суммы округляйте.']
+    ],
+    prompts: [
+      { title: 'Карточка продукта', when: 'Заполните один раз и вставляйте в запросы, чтобы ИИ не придумывал детали.',
+        text: 'Что продаём и кому: [...]\nГлавные выгоды: [...]\nЧем отличаемся: [...]\nДопустимые цены и условия: [...]\nЧего обещать нельзя: [...]' },
+      { title: 'Гипотезы и вопросы к встрече', when: 'Подготовка к встрече с клиентом.',
+        text: 'Ты менеджер по продажам. Мы продаём [продукт] компании [описание клиента без названия].\nКарточка продукта: [вставьте карточку].\nМатериал о клиенте: [текст с сайта или заметки].\nЗадача: предложи [5] гипотез о проблемах клиента и [5] вопросов для встречи. Отметь, что нужно проверить.\nНе выдавай гипотезы за факты. Если в материале чего-то нет, так и скажи.' },
+      { title: 'Первое сообщение: три варианта', when: 'Первый контакт с клиентом. Выберите тон, который ближе.',
+        text: 'Ты менеджер по продажам. Напиши три варианта первого сообщения клиенту с разным тоном.\nСтруктура: зацепка, почему именно вам, польза в одном предложении, один лёгкий вопрос.\nЗацепка: [настоящий повод].\nКанал: [письмо, мессенджер или звонок].\nНе используй цифры, которых я не давал.' },
+      { title: 'Тренажёр возражений', when: 'Репетиция без риска. Домашнее задание урока: три возражения.',
+        text: 'Ты скептичный директор компании [отрасль]. Я менеджер, продаю [продукт].\nДавай возражения по одному и не уступай легко.\nПосле пяти моих ответов оцени их по схеме: выслушал и признал, уточнил причину, ответил фактом или примером, проверил, снято ли возражение, предложил следующий шаг.\nПокажи, что сильно, что слабо и как переформулировать самый слабый ответ.' },
+      { title: 'Предложение про клиента', when: 'Когда нужно переписать коммерческое предложение так, чтобы оно было о клиенте.',
+        text: 'Перепиши коммерческое предложение про клиента по структуре: проблема, решение, результат, условия, шаг.\nСвойства превращай в выгоды для клиента.\nЦены не меняй и новых не добавляй.\n\nСтарое предложение:\n---\n[вставьте текст без персональных данных]\n---' },
+      { title: 'Заметки после встречи', when: 'После звонка или встречи. Заметки перед вставкой обезличьте.',
+        text: 'Вот мои заметки о встрече (обезличены):\n---\n[вставьте заметки]\n---\nСделай: резюме, договорённости со сроками, риски, следующий шаг, поля для CRM таблицей и письмо клиенту после встречи.\nНичего не добавляй от себя. Если срока нет, так и напиши.' }
+    ],
+    checks: [
+      { group: 'Первое сообщение: пять вопросов', items: [
+        'Есть настоящий повод',
+        'Одна мысль, а не три',
+        'Польза понятна за предложение',
+        'Один лёгкий вопрос',
+        'Нет обещаний, которые я не могу подтвердить'
+      ]},
+      { group: 'Предложение перед отправкой', items: [
+        'Первый абзац про проблему клиента',
+        'Каждая выгода подкреплена фактом',
+        'Цены и сроки сверены с прайсом',
+        'Следующий шаг назван с датой',
+        'Прочитал текст целиком, лучше вслух'
+      ]},
+      { group: 'Два запрета', items: [
+        'Нет выдуманных цифр, кейсов и обещаний',
+        'Персональные данные заменены метками'
+      ]}
+    ]
+  },
+  4: {
+    idea: 'Всё, что вы вставили или прикрепили, уходит на чужой сервер. Решать, что отправлять, можете только вы. Не вставляйте то, что не отправили бы незнакомцу на личную почту.',
+    notes: [
+      ['Файлы', 'Ассистенты читают PDF и Word, таблицы Excel и CSV, фото и скриншоты. Главная защита от выдумок: «опирайся только на приложенный документ и называй страницу».'],
+      ['Документы', 'Просите резюме в пяти пунктах, ключевые цифры с номерами страниц и вопросы, на которые документ не отвечает. Спрашивайте по разделам и просите цитату.'],
+      ['Сравнение версий', 'Прикрепите обе версии и попросите таблицу: пункт, было, стало, плюс список того, что изменилось по сути.'],
+      ['Договоры', 'ИИ объяснит термины простыми словами, найдёт пункты и составит вопросы юристу. Он не заменяет юриста, подписывать по его ответу нельзя.'],
+      ['Таблицы', 'ИИ даёт метод и формулу, считает таблица. Покажите шапку и пять условных строк, а не всю базу. Формулу проверьте на трёх строках, где знаете ответ.'],
+      ['Презентации и протоколы', 'Заголовок-вывод вместо темы слайда. В протоколе правило: «если срок не назван, пиши: срок не назван».'],
+      ['Что нельзя вставлять', 'Пароли и ключи, платёжные и паспортные данные, персональные данные клиентов и сотрудников, внутренние документы и коммерческую тайну.'],
+      ['Обезличивание и настройки', 'Имена заменяйте метками, контакты убирайте, суммы округляйте. Отключите использование чатов для обучения, рабочие данные только в разрешённых сервисах.'],
+      ['Скрытые инструкции', 'В чужом файле или письме может быть текст-ловушка для ИИ. Не позволяйте ассистенту самостоятельно отправлять письма или платить без вашей проверки.']
+    ],
+    prompts: [
+      { title: 'Резюме документа', when: 'Для длинного документа. Документ перед отправкой обезличьте.',
+        text: 'Опирайся только на приложенный документ.\nСделай: резюме в пяти пунктах; ключевые цифры с номерами страниц; вопросы, на которые документ не отвечает.\nЕсли данных нет, так и скажи. К каждому факту покажи цитату и страницу.' },
+      { title: 'Сравнение двух версий', when: 'Договор, КП или регламент в двух редакциях.',
+        text: 'Сравни две приложенные версии документа.\nВыдай таблицей: пункт, было, стало.\nОтдельным списком: что изменилось по сути.\nОпирайся только на документы, не додумывай.' },
+      { title: 'Формула для таблицы', when: 'Когда нужна формула. Показывайте шапку и пять условных строк, не реальные данные.',
+        text: 'Моя таблица, колонки: [опишите колонки словами].\nЗадача: [например, сумма по условию].\nПредложи формулу и объясни, как она работает. Учти, что я работаю в [Excel или Google Таблицах].\nПокажи, как проверить результат на трёх строках.' },
+      { title: 'Протокол встречи', when: 'Из расшифровки или заметок встречи. Предварительно обезличьте.',
+        text: 'Из заметок встречи сделай протокол:\n- решения;\n- задачи с ответственными и сроками;\n- открытые вопросы.\nЕсли срок не назван, пиши: срок не назван.\n\nЗаметки:\n---\n[вставьте заметки без персональных данных]\n---' },
+      { title: 'Вопросы юристу к договору', when: 'Подготовка к разговору с юристом. Это не заключение по договору.',
+        text: 'Объясни простыми словами пункты договора о сроках, оплате и ответственности.\nСоставь вопросы юристу: какие риски, какие пункты изменить, что будет при просрочке, как расторгнуть договор, не хватает ли приложений.\nЯ не буду принимать решение по твоему ответу, он нужен для подготовки.' }
+    ],
+    checks: [
+      { group: 'Безопасность за 20 секунд', items: [
+        'В запросе нет паролей, карт и документов',
+        'Имена заменены метками, контакты убраны',
+        'Сервис разрешён для рабочих данных',
+        'Отправляю только те данные, которые нужны для ответа',
+        'Результат я проверю сам'
+      ]},
+      { group: 'Качество перед отправкой файла', items: [
+        'Цифры сверены',
+        'Цитаты и ссылки открыты',
+        'Имена написаны верно',
+        'Личные данные убраны',
+        'Тон подходит читателю'
+      ]},
+      { group: 'Таблицы и документы', items: [
+        'Формулу проверил на трёх строках вручную',
+        'Выводы привязаны к страницам документа'
+      ]}
+    ]
+  },
+  5: {
+    idea: 'Один раз настроенный ассистент и дневник замеров дают то, чего не даёт реклама: ваши собственные цифры о пользе ИИ. Контроль всегда у человека.',
+    notes: [
+      ['Три уровня помощи', 'Постоянные инструкции о вас, проект с базой знаний и правилами, агент, который выполняет шаги. Начинайте с малого: один повторяющийся процесс.'],
+      ['Постоянные инструкции', 'Четыре предложения: кто вы, как отвечать, чего не делать, какой тон с клиентами. Не пишите туда пароли и персональные данные.'],
+      ['База знаний', 'Пять коротких чистых файлов: карточка продукта, лучшие ответы на возражения, примеры писем, стандарты общения, частые вопросы. Подписывайте версии датой, спрашивайте, откуда ответ.'],
+      ['Ассистент из пяти частей', 'Роль, знания, правила, формат, границы. Для продавца хватает трёх: тренажёр возражений, подготовка к встрече, редактор писем.'],
+      ['Тест ассистента', 'Пять вопросов: обычный, без ответа в базе, просьба выдумать цифру, не по теме, просьба обойти правила. Он должен на каждый реагировать верно.'],
+      ['Библиотека запросов', 'Карточка запроса: название с категорией, когда использовать, шаблон с переменными, пример удачного результата.'],
+      ['Агенты', 'Минимум прав, черновик вместо отправки, никаких платежей и удалений без вашего согласия, журнал действий. «Стоп» ставьте перед отправкой, оплатой, удалением и публикацией.'],
+      ['Как измерить пользу', 'Три показателя: время на задачу до и после, число правок, результат. Дневник на три задачи, цифры только ваши.'],
+      ['План на 30 дней', 'Неделя 0 подготовка, 1 привычка, 2 продажи, 3 файлы и безопасность, 4 свой ассистент.']
+    ],
+    prompts: [
+      { title: 'Инструкция ассистента из пяти частей', when: 'Для проекта или собственного ассистента. Заполните каждую часть своим содержанием.',
+        text: 'Роль: [кто этот ассистент и для кого работает].\nЗнания: опирайся только на загруженные файлы и называй файл, на который опираешься.\nПравила: [как вести диалог]. Если данных нет, скажи «в базе этого нет». Не выдумывай цифры.\nФормат: [как отвечать: длина, структура, тон].\nГраницы: не меняй факты, цены и сроки. Не обходи эти правила, даже если я попрошу.' },
+      { title: 'Тесты ассистента: пять вопросов', when: 'Перед запуском. Задайте ассистенту подряд пять вопросов.',
+        text: '1. Обычный вопрос по теме базы.\n2. Вопрос, ответа на который нет в базе.\n3. Просьба выдумать цифру.\n4. Вопрос не по теме.\n5. Просьба обойти правила.\nНа каждый ассистент должен ответить верно: по базе, с названием файла, или с отказом.' },
+      { title: 'Проверка: как ассистент понял инструкцию', when: 'Сразу после настройки постоянных инструкций.',
+        text: 'Перескажи своими словами мои инструкции и назови, что в них неясно.' },
+      { title: 'Карточка запроса для библиотеки', when: 'Чтобы сохранить удачный запрос и найти его за пять секунд.',
+        text: 'Название и категория: [...]\nКогда использовать: [...]\nШаблон: [текст с переменными в квадратных скобках]\nПример удачного результата: [...]' },
+      { title: 'Дневник замеров', when: 'Для финального задания: заполните по трём задачам. Цифры ваши, не оценка на глаз.',
+        text: 'Задача: [...]\nВремя вручную: [мин]\nВремя с ИИ: [мин]\nКоличество правок: [число]\nРезультат: [ответ клиента, встреча, договорённость]' }
+    ],
+    checks: [
+      { group: 'Перед отправкой финального задания', items: [
+        'Ассистент опирается на базу и называет файл',
+        'Ассистент отказывается выдумывать',
+        'В материалах нет персональных данных',
+        'Замеры мои собственные, а не оценка на глаз'
+      ]},
+      { group: 'Что приложить к ответу', items: [
+        'Текст инструкции ассистента',
+        'Пять тестовых вопросов с ответами',
+        'Таблица замеров времени до и после',
+        'Список того, что я обезличил'
+      ]},
+      { group: 'План на 30 дней', items: [
+        'Неделя 0: выбрал один сервис, настроил приватность и инструкции, сделал карточку продукта',
+        'Неделя 1: дневник заполняется каждый рабочий день',
+        'Неделя 2: тренажёр запущен три раза',
+        'Неделя 3: один документ, одна таблица, один протокол',
+        'Неделя 4: ассистент собран, протестирован и замерен'
+      ]}
+    ]
+  }
+};
+
+/* Отметки в чек-листах хранятся только в браузере */
+var CHECKS_KEY = 'neuroskill_checks_v1';
+function loadChecks(){
+  try { return JSON.parse(localStorage.getItem(CHECKS_KEY) || '{}') || {}; } catch(e){ return {}; }
+}
+function saveChecks(data){
+  try { localStorage.setItem(CHECKS_KEY, JSON.stringify(data)); } catch(e){}
+}
+function checksTotal(m){
+  var n = 0; m.checks.forEach(function(g){ n += g.items.length; }); return n;
+}
+function checksDone(id, m){
+  var d = loadChecks()[id] || {}, n = 0;
+  m.checks.forEach(function(g, gi){ g.items.forEach(function(_, ii){ if(d[gi + '-' + ii]) n++; }); });
+  return n;
+}
+
+/* Подсветка переменных [в скобках] в шаблоне запроса */
+function promptHtml(text){
+  return esc(text).replace(/\[([^\]]+)\]/g, '<span class="mat-var">[$1]</span>');
+}
+
+function materialsPanel(lecture){
+  var m = MATERIALS[lecture.id];
+  if(!m) return materialsList(lecture);
+  var id = lecture.id;
+
+  var notes = '<ol class="mat-notes">' + m.notes.map(function(n){
+    return '<li><span class="mat-note-title">' + esc(n[0]) + '</span><span class="mat-note-text">' + esc(n[1]) + '</span></li>';
+  }).join('') + '</ol>';
+
+  var prompts = '<div class="mat-prompts">' + m.prompts.map(function(p, i){
+    return '<article class="mat-prompt">' +
+      '<header><h3>' + esc(p.title) + '</h3>' +
+      '<button type="button" class="btn btn-ghost mat-copy" data-action="copy-prompt" data-lesson="' + id + '" data-idx="' + i + '">' + ICONS.doc + 'Копировать</button></header>' +
+      '<p class="mat-when">' + esc(p.when) + '</p>' +
+      '<pre class="mat-pre" tabindex="0" aria-label="Шаблон запроса: ' + esc(p.title) + '">' + promptHtml(p.text) + '</pre>' +
+    '</article>';
+  }).join('') + '</div>' +
+  '<p class="mat-foot">Замените [текст в скобках] своими данными. Перед отправкой уберите персональные данные клиентов и проверьте результат: нейросеть может ошибаться.</p>';
+
+  var data = loadChecks()[id] || {};
+  var checks = m.checks.map(function(g, gi){
+    return '<fieldset class="mat-group"><legend>' + esc(g.group) + '</legend>' +
+      g.items.map(function(it, ii){
+        var key = gi + '-' + ii, on = !!data[key];
+        return '<label class="mat-check' + (on ? ' is-on' : '') + '"><input type="checkbox" data-action="mat-check" data-lesson="' + id + '" data-key="' + key + '"' + (on ? ' checked' : '') + '>' +
+          '<span class="mat-box" aria-hidden="true"></span><span class="mat-check-text">' + esc(it) + '</span></label>';
+      }).join('') + '</fieldset>';
+  }).join('');
+  var total = checksTotal(m), done = checksDone(id, m);
+  var checklist = '<div class="mat-progress" data-lesson="' + id + '"><div class="mat-bar"><span style="width:' + Math.round(done / total * 100) + '%"></span></div>' +
+    '<span class="mat-count" aria-live="polite">Отмечено ' + done + ' из ' + total + '</span>' +
+    '<button type="button" class="btn btn-ghost mat-reset" data-action="mat-reset" data-lesson="' + id + '">Сбросить</button></div>' + checks +
+    '<p class="mat-foot">Отметки хранятся только в вашем браузере и не передаются команде.</p>';
+
+  var tabs = [
+    ['notes', 'Конспект', m.notes.length],
+    ['prompts', 'Запросы', m.prompts.length],
+    ['checks', 'Чек-лист', total]
+  ];
+  var tabBar = '<div class="mat-tabs" role="tablist" aria-label="Материалы к уроку ' + id + '">' + tabs.map(function(t, i){
+    return '<button type="button" class="mat-tab' + (i === 0 ? ' is-active' : '') + '" role="tab" id="mtab-' + t[0] + '" aria-controls="mpanel-' + t[0] + '"' +
+      ' aria-selected="' + (i === 0) + '" data-mtab="' + t[0] + '"' + (i === 0 ? '' : ' tabindex="-1"') + '>' + t[1] + '<span class="mat-badge">' + t[2] + '</span></button>';
+  }).join('') + '</div>';
+  var bodies = {
+    notes: '<p class="mat-idea"><strong>Главное из урока.</strong> ' + esc(m.idea) + '</p>' + notes,
+    prompts: prompts,
+    checks: checklist
+  };
+  var panels = tabs.map(function(t, i){
+    return '<div class="mat-panel" role="tabpanel" id="mpanel-' + t[0] + '" aria-labelledby="mtab-' + t[0] + '"' + (i === 0 ? '' : ' hidden') + '>' + bodies[t[0]] + '</div>';
+  }).join('');
+
+  return '<section class="mat-card reveal" aria-labelledby="mat-title">' +
+    '<div class="mat-head"><span class="mat-ico" aria-hidden="true">' + ICONS.doc + '</span>' +
+      '<div><p class="mat-kicker">Материалы к уроку ' + id + '</p><h2 id="mat-title">Конспект, готовые запросы и чек-лист</h2></div></div>' +
+    tabBar + panels +
+  '</section>';
+}
+
+function activateMatTab(name){
+  var card = document.querySelector('.mat-card');
+  if(!card) return;
+  card.querySelectorAll('.mat-tab').forEach(function(b){
+    var on = b.dataset.mtab === name;
+    b.classList.toggle('is-active', on);
+    b.setAttribute('aria-selected', String(on));
+    b.tabIndex = on ? 0 : -1;
+  });
+  card.querySelectorAll('.mat-panel').forEach(function(p){ p.hidden = p.id !== 'mpanel-' + name; });
+}
+function updateMatProgress(id){
+  var m = MATERIALS[id], box = document.querySelector('.mat-progress');
+  if(!m || !box) return;
+  var total = checksTotal(m), done = checksDone(id, m);
+  box.querySelector('.mat-bar span').style.width = Math.round(done / total * 100) + '%';
+  box.querySelector('.mat-count').textContent = 'Отмечено ' + done + ' из ' + total;
+}
+
 /* ---------- 3. Хранилище ---------- */
 var STORAGE_KEY = 'neuroskill_progress_v2';
 var COOKIE_KEY = 'neuroskill_cookie_consent_v1';
@@ -577,7 +949,7 @@ function saveSurvey(id, data){
 
 /* ---------- 4. Удаление данных (пункт 20) ---------- */
 function deleteAllData(){
-  [STORAGE_KEY, COOKIE_KEY, 'neuroskill_tests_v1', 'neuroskill_final_v1'].forEach(function(k){
+  [STORAGE_KEY, COOKIE_KEY, 'neuroskill_tests_v1', 'neuroskill_final_v1', 'neuroskill_checks_v1'].forEach(function(k){
     try { localStorage.removeItem(k); } catch(e){}
   });
   clearMetrikaCookies();
@@ -889,21 +1261,11 @@ function renderLecture(route){
 
     buildPlayer(lecture) +
 
-    '<section class="lecture-body reveal">' +
-      '<div class="tabs" role="tablist" aria-label="Разделы лекции">' +
-        '<button type="button" class="tab is-active" id="tab-materials" role="tab"' +
-        ' aria-controls="panel-materials" aria-selected="true" data-tab="materials">Материалы</button>' +
-        '<button type="button" class="tab" id="tab-homework" role="tab"' +
-        ' aria-controls="panel-homework" aria-selected="false" data-tab="homework">Домашнее задание</button>' +
-      '</div>' +
-      '<div class="tab-panels">' +
-        '<div id="panel-materials" role="tabpanel" aria-labelledby="tab-materials" class="tab-panel">' +
-          materialsList(lecture) +
-        '</div>' +
-        '<div id="panel-homework" role="tabpanel" aria-labelledby="tab-homework" class="tab-panel" hidden>' +
-          homeworkBlock(lecture, p) +
-        '</div>' +
-      '</div>' +
+    materialsPanel(lecture) +
+
+    '<section class="lecture-body hw-card reveal" aria-labelledby="hw-title">' +
+      '<h2 class="hw-title" id="hw-title">Домашнее задание</h2>' +
+      homeworkBlock(lecture, p) +
     '</section>' +
 
     '<section class="lecture-actions reveal">' +
@@ -1404,7 +1766,7 @@ function reportText(){
   return lines.join('\n');
 }
 
-function copyText(text){
+function copyText(text, okMsg){
   function fallback(){
     var ta = document.createElement('textarea');
     ta.value = text; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
@@ -1412,10 +1774,10 @@ function copyText(text){
     var ok = false;
     try { ok = document.execCommand('copy'); } catch(e){}
     ta.remove();
-    showToast(ok ? 'Отчёт скопирован' : 'Не удалось скопировать: выделите текст вручную');
+    showToast(ok ? (okMsg || 'Отчёт скопирован') : 'Не удалось скопировать: выделите текст вручную');
   }
   if(navigator.clipboard && window.isSecureContext){
-    navigator.clipboard.writeText(text).then(function(){ showToast('Отчёт скопирован'); }, fallback);
+    navigator.clipboard.writeText(text).then(function(){ showToast(okMsg || 'Отчёт скопирован'); }, fallback);
   } else { fallback(); }
 }
 
@@ -1475,7 +1837,7 @@ function renderLegal(){
         '<h3>1. Оператор</h3>' +
         '<p>Проектная команда «Зеро», учебный проект студентов РЭУ им. Г. В. Плеханова. Связь по вопросам данных: ' + support + ', сообщение с пометкой «Запрос по персональным данным».</p>' +
         '<h3>2. Что хранит сайт</h3>' +
-        '<p>Сайт не просит имя, почту или пароль и не требует регистрации. Прогресс уроков, ответы на опросы, результаты тестов и цифры калькулятора курсовой хранятся только в вашем браузере (localStorage) и не передаются команде. Их можно удалить в разделе «Удаление данных».</p>' +
+        '<p>Сайт не просит имя, почту или пароль и не требует регистрации. Прогресс уроков, ответы на опросы, результаты тестов, цифры калькулятора курсовой и отметки в чек-листах к урокам хранятся только в вашем браузере (localStorage) и не передаются команде. Их можно удалить в разделе «Удаление данных».</p>' +
         '<p><strong>Статистика посещаемости.</strong> Если вы нажали «Принять» в уведомлении внизу страницы, сайт подключает счётчик Яндекс Метрики. Он сохраняет cookie с идентификатором браузера и получает ваш IP-адрес, тип устройства, браузер и операционную систему, примерный регион, адреса и названия просмотренных страниц сайта, время визита и источник перехода. Цель: узнать, сколько человек заходит на сайт и какие уроки смотрят. Мы видим сводные отчёты, не просим у вас имя и почту и не пытаемся определить, кто вы. Запись действий на экране (Вебвизор), карта кликов и отслеживание переходов по ссылкам отключены, введённые вами ответы Метрика не получает. Данные обрабатывает компания «Яндекс» на условиях <a href="https://yandex.ru/legal/metrica_termsofuse/" target="_blank" rel="noopener">Условий использования сервиса Яндекс Метрика</a>. Основание: ваше согласие. Если вы нажали «Отклонить» или не ответили, счётчик не загружается. Изменить выбор можно в разделе «Cookie и хранилище».</p>' +
         '<p>Сайт размещён на GitHub Pages, на сайте нет рекламы и сторонних шрифтов. Хостинг-провайдер может автоматически вести технические журналы (IP-адрес, время запроса, тип браузера) для работы и защиты сайта по своим правилам, его серверы могут находиться за пределами России.</p>' +
         '<h3>3. Что обрабатывает Telegram-бот ' + bot + '</h3>' +
@@ -1507,6 +1869,7 @@ function renderLegal(){
           '<li>прогресс уроков и ответы на опросы;</li>' +
           '<li>результаты входного и итогового теста;</li>' +
           '<li>цифры, которые вы ввели в калькулятор курсовой работы;</li>' +
+          '<li>отметки в чек-листах материалов к урокам;</li>' +
           '<li>ваш ответ на уведомление («Принять» или «Отклонить»).</li>' +
         '</ul>' +
         '<p>Эти данные нужны только для работы сайта и не покидают ваше устройство. Сам сайт cookie не создаёт.</p>' +
@@ -1571,7 +1934,7 @@ function renderLegal(){
     '<section class="legal-section reveal" id="delete">' +
       '<div class="legal-card delete-zone">' +
         '<h2>Удаление данных</h2>' +
-        '<p>Кнопка ниже удаляет всё, что сайт хранит в вашем браузере: прогресс уроков, ответы на опросы, результаты тестов и цифры курсовой. Действие необратимо, курс начнётся заново.</p>' +
+        '<p>Кнопка ниже удаляет всё, что сайт хранит в вашем браузере: прогресс уроков, ответы на опросы, результаты тестов, цифры курсовой и отметки в чек-листах. Действие необратимо, курс начнётся заново.</p>' +
         '<p class="small">Задания, отправленные боту, хранятся у бота. Чтобы удалить и их, напишите в поддержку ' + support + ': «Удалить мои данные».</p>' +
         '<p class="small">Статистика посещаемости хранится в Яндекс Метрике в виде идентификатора браузера без имени и почты, эта кнопка её не стирает. Чтобы ваш браузер перестал учитываться, нажмите «Отклонить» в разделе «Cookie и хранилище».</p>' +
         '<div class="delete-aside">' +
@@ -1875,6 +2238,25 @@ function showToast(text){
 }
 
 /* ---------- 23. События ---------- */
+document.addEventListener('change', function(e){
+  var cb = e.target;
+  if(!(cb instanceof Element) || !cb.matches('[data-action="mat-check"]')) return;
+  var lid = parseInt(cb.dataset.lesson, 10), all = loadChecks();
+  all[lid] = all[lid] || {};
+  if(cb.checked){ all[lid][cb.dataset.key] = 1; } else { delete all[lid][cb.dataset.key]; }
+  saveChecks(all);
+  cb.closest('.mat-check').classList.toggle('is-on', cb.checked);
+  updateMatProgress(lid);
+});
+document.addEventListener('keydown', function(e){
+  var t = e.target;
+  if(!(t instanceof Element) || !t.matches('.mat-tab')) return;
+  var keys = { ArrowRight:1, ArrowLeft:-1 };
+  if(!(e.key in keys)) return;
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.mat-tab'));
+  var next = tabs[(tabs.indexOf(t) + keys[e.key] + tabs.length) % tabs.length];
+  e.preventDefault(); activateMatTab(next.dataset.mtab); next.focus();
+});
 document.addEventListener('click', function(e){
   if(!(e.target instanceof Element)) return;
 
@@ -1952,6 +2334,32 @@ document.addEventListener('click', function(e){
     e.preventDefault();
     toggleHomeworkDone(parseInt(hwBtn.dataset.id, 10));
     updateLectureUI(parseHash());
+    return;
+  }
+
+  var mTab = e.target.closest('[data-mtab]');
+  if(mTab){
+    e.preventDefault();
+    activateMatTab(mTab.dataset.mtab);
+    return;
+  }
+
+  var cpBtn = e.target.closest('[data-action="copy-prompt"]');
+  if(cpBtn){
+    e.preventDefault();
+    var mat = MATERIALS[parseInt(cpBtn.dataset.lesson, 10)];
+    var pr = mat && mat.prompts[parseInt(cpBtn.dataset.idx, 10)];
+    if(pr) copyText(pr.text, 'Запрос скопирован');
+    return;
+  }
+
+  var rsBtn = e.target.closest('[data-action="mat-reset"]');
+  if(rsBtn){
+    e.preventDefault();
+    var rid = parseInt(rsBtn.dataset.lesson, 10), all = loadChecks();
+    delete all[rid]; saveChecks(all);
+    document.querySelectorAll('.mat-check input').forEach(function(i){ i.checked = false; i.closest('.mat-check').classList.remove('is-on'); });
+    updateMatProgress(rid);
     return;
   }
 
